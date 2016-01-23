@@ -36,3 +36,13 @@ $ hexo deploy
 ```
 
 More info: [Deployment](http://hexo.io/docs/deployment.html)
+
+Highlight Test
+
+``` c++
+#include <cstdio>
+using namespace std;
+main(){
+    return 0;
+}
+```

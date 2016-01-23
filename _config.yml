@@ -4,7 +4,7 @@
 
 # Site
 title: 'Chino'
-subtitle: '寫寫筆記、享受人生'
+subtitle: '寫寫筆記、享受人生!'
 description: 'Empty.'
 author: 'ZHONG-SHENG WU'
 language: 'Chinese, English'
@@ -41,7 +41,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace:
+  tab_replace: '    '
 
 # Category & Tag
 default_category: uncategorized
