@@ -2,6 +2,8 @@
 menu:
   Home: /
   Archives: /archives
+  About: /About
+  Github: //github.com/samsam2310
 rss: /atom.xml
 
 # Content
@@ -9,13 +11,14 @@ excerpt_link: Read More
 fancybox: true
 
 # Sidebar
-sidebar: right
+sidebar: bottom
 widgets:
 - category
 - tag
-- tagcloud
-- archive
+# - tagcloud
+# - archive
 - recent_posts
+
 
 # Miscellaneous
 google_analytics:
