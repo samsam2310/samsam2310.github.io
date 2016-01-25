@@ -2,7 +2,7 @@
 title: 'STEP5::Problem 0107 : 魔法少女伊莉雅'
 tags:
   - C++
-  - Online Judge
+  - Step5
 category:
   - Code 備忘錄
   - Math
