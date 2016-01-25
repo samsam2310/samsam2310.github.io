@@ -2,7 +2,7 @@
 menu:
   Home: /
   Archives: /archives
-  About: /About
+  About: /about
   Github: //github.com/samsam2310
 rss: /atom.xml
 
@@ -14,8 +14,8 @@ fancybox: true
 sidebar: bottom
 widgets:
 - category
-- tag
-# - tagcloud
+# - tag
+- tagcloud
 # - archive
 - recent_posts
 
