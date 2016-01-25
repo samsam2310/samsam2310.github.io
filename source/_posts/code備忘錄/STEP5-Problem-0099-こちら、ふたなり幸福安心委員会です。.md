@@ -18,7 +18,9 @@ http://web2.ck.tp.edu.tw/~step5/probdisp.php?pid=0099
 
 首先，根本神曲
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SuCFHxGJ9zQ" frameborder="0" allowfullscreen></iframe>
+
+{% youtube SuCFHxGJ9zQ %}
+
 
 好..重點是，線段樹就是一顆完整2元數，我用遞迴的方式記錄他的每一格的參數，然後每一格紀錄該區間的最小值，這樣就能快速查詢區間最小值，又能快速更新區間最小值。 如果不更新，可以用O(1)查詢的 [sparse table](http://www.felix021.com/blog/read.php?1066)。 
 
