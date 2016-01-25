@@ -3,7 +3,7 @@ title: 'STEP5::Problem 0138 : 土豪飯店'
 tags:
   - C++
   - Step5
-  - Dijkstra's
+  - Shortest Path
 category:
   - Code 備忘錄
   - Graph
