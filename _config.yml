@@ -60,6 +60,18 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+tag_generator:
+  per_page: 30
+
+category_generator:
+  per_page: 30
+
+archive_generator:
+  per_page: 30
+  yearly: true
+  monthly: true
+  daily: false
+
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
