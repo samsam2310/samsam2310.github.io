@@ -5,7 +5,7 @@ date: 2016-01-25 03:22:30
 
 關於本站的一些小事...。
 
-Latest Update: {{updated.format('YYYY-mm-DD hh:mm:ss')}}
+Latest Update: {{updated.format('YYYY-MM-DD hh:mm:ss')}}
 
 
 ## About Me
@@ -22,6 +22,8 @@ FB: https://www.facebook.com/samsam2310
 
 希望可以認識喜歡寫程式的人...。
 
+
+{% img /css/images/LOGO.png 150 %}
 
 ## About Chino's
 
@@ -40,4 +42,5 @@ Chino's 是我架設的個人Blog。
 
 ### Chino's 紀事
 
-* 2016/01/25開始架設，陸續將舊文章移到這裡。
+* 2016/01/25 開始架設，陸續將舊文章移到這裡。
+* 2016/01/26 已將"code備忘錄"之文章全數移動到Chino's。
