@@ -102,3 +102,5 @@ deploy:
   repo: git@github.com:samsam2310/samsam2310.github.io.git
   branch: master
 
+# Disqus
+disqus_shortname: chinos

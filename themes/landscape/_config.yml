@@ -21,9 +21,8 @@ widgets:
 
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-72943167-1
 favicon: /favicon.ico
-disqus_shortname:
 twitter:
 google_plus:
 fb_admins:
