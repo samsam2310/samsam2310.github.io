@@ -29,7 +29,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://samsam2310.github.io
+url: http://chino.taipei
 root: /
 permalink: :title/
 permalink_defaults:
