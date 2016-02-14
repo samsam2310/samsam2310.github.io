@@ -1,8 +1,9 @@
 ---
-title: 1049 . E.奶油蛋糕切切切
+title: TIOJ::1049 . E.奶油蛋糕切切切
 tags:
   - C++
   - TIOJ
+  - NPSC
 category:
   - Code 備忘錄
   - Math
