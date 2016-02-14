@@ -104,3 +104,15 @@ deploy:
 
 # Disqus
 disqus_shortname: chinos
+
+
+# RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+
+# SiteMap
+sitemap:
+  path: sitemap.xml
