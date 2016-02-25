@@ -32,10 +32,12 @@ Wifi的狀況是，一開始看起來很正常，但是過了一段時間後，�
 
 於是就這樣過了兩年的用USB連手機網路的生活後，今天心血來潮決定來找找看別人寫的驅動，運氣很好一找就被我找到了。
 首先是這篇，http://www.dedoimedo.com/computers/ubuntu-trusty-realtek.html
-這篇裡給了一個簡單的解法，也就是在 **/etc/modprobe.d/rtl8723be.conf** 這個檔案裡（如果沒有就新增一個），加入一行設定 
+這篇裡給了一個簡單的解法，也就是在 **/etc/modprobe.d/rtl8723be.conf** 這個檔案裡（如果沒有就新增一個），加入一行設定
+
 ```
 options rtl8723be fwlps=N ips=N
 ```
+
 加入這行的原因是為了避免網卡進入休眠或是省電模式的樣子，總之加了之後重開機，觀察了一段時間，狀況良好。（因為我後來又更新了驅動，所以不確定是不是真的解決了問題，但是我估計應該是OK的）
 
 
@@ -47,7 +49,8 @@ https://github.com/lwfinger/rtl8723au_bt
 這個是藍牙驅動，版本是8723的其他幾個版本通用的樣子，其實上面那個rtlwifi_new就是幾個最新的Realtek網卡驅動程式，只是不包含藍牙驅動，作者指示說可以用rtl8723au_bt這個驅動程式。
 
 於是，先把驅動載下來，沒有git的人請先裝git。
-```
+
+```bash
 git clone https://github.com/lwfinger/rtl8723au_bt.git
 cd rel8723au_bt
 # change branch to new, troy or kernel.
@@ -55,6 +58,7 @@ git checkout troy
 make
 sudo make install
 ```
+
 他有幾個不同的branch，我試了幾個後發現我灌的起來的只有troy跟new兩個branch，後來確定可以跑的是troy這個，雖然我也不確定他們的確切差別，還有一個branch叫作kernel，是給kernel 3.20以上的人使用的（說法有很多，有地方說3.1４以上也可以，可是我是3.16卻灌不起來），作者說kernel的code是最好的，都可以灌灌看。
 灌好了之後，重開機。
 
@@ -68,13 +72,15 @@ sudo make install
 也就是去安裝 https://github.com/lwfinger/rtlwifi_new 這個驅動。
 
 這個驅動一樣有幾個branch，我選擇灌troy那個。
-```
+
+```bash
 git clone https://github.com/lwfinger/rtlwifi_new
 cd rtlwifi_new
 git checkout troy
 make
 sudo make install
 ```
+
 灌完之後重開機。
 
 之後，我的WIFI跟藍牙就完美運作了！！！！
