@@ -10,6 +10,7 @@ category:
 date: 2016-02-14 19:51:30
 ---
 
+http://tioj.ck.tp.edu.tw/problems/1049
 
 數學幾何題，有很多浮點數很麻煩，要想仔細一點。
 
