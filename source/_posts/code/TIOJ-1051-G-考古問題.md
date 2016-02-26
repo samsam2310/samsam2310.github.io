@@ -3,6 +3,7 @@ title: 'TIOJ::1051 . G.考古問題'
 tags:
   - C++
   - TIOJ
+  - NPSC
   - LIS
   - LCS
   - DP回溯
