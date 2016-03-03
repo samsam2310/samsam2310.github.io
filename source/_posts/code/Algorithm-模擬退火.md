@@ -5,7 +5,7 @@ tags:
   - 模擬退火
 category:
   - Code 備忘錄
-  - 計算幾何
+  - Algorithm
 date: 2015-03-14 09:15:58
 ---
 
