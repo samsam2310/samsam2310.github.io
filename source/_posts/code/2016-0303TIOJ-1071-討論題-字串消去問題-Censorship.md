@@ -3,7 +3,7 @@ title: 'TIOJ::1071 . [討論題] 字串消去問題(Censorship)'
 tags:
   - C++
   - TIOJ
-  - String
+  - Trie
 category:
   - Code 備忘錄
   - DP
