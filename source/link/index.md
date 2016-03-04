@@ -15,6 +15,9 @@ Latest Update: {{updated.format('YYYY-MM-DD hh:mm:ss')}}
 
 一些朋友的Blog，主題多為演算法競賽題解。
  * [www.anliting.com](//www.anliting.com)：建中百四丁安立的Blog，純HTML5和JS打造的極簡風網站，有題解和哲學文章。
+ * [Code倉庫](//cbdcoding.blogspot.tw/)：雄中百四陳柏叡CBD的Blog，這一屆有打TOI而且名字開頭是陳伯的都很電，裡面有很多很電的題解。
+ * [code風景區](//codingsimplifylife.blogspot.tw/)：雄中百五余柏序的Blog，裡面有數百篇各大OJ的題目題解，每題幾乎都有詳細的說明。
+ * [野有蔓草](//fsh0524.github.io/)：建中百五俞建安的blog，作者每天都要跟不同女生出去，想必Blog也是多彩多姿吧。
 
 
 ------------------------
