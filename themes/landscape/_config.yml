@@ -1,8 +1,10 @@
 # Header
 menu:
   Home: /
+  Category: /category
   Archives: /archives
   About: /about
+  Link: /link
 link:
   Github: //github.com/samsam2310
 rss: /atom.xml
