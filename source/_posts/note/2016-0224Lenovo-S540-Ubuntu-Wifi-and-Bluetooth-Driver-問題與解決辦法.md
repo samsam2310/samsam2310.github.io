@@ -1,7 +1,7 @@
 ---
 title: Lenovo-S540 RTL8723BE Ubuntu Wifi and Bluetooth Driver 問題與解決辦法
 category:
-  - Node
+  - Note
 date: 2016-02-24 12:59:55
 tags:
 - ubuntu

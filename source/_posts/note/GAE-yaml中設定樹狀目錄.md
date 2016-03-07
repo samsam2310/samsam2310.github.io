@@ -1,7 +1,7 @@
 ---
 title: 'GAE::yaml中設定樹狀目錄'
 category:
-  - Node
+  - Note
 date: 2014-08-03 10:22:15
 tags:
 - YAML

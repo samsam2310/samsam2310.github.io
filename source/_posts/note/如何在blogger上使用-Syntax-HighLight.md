@@ -1,7 +1,7 @@
 ---
 title: 如何在blogger上使用 Syntax HighLight
 category:
-  - Node
+  - Note
 date: 2014-05-23 07:21:34
 tags:
 - HTML&CSS

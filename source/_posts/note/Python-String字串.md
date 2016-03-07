@@ -1,7 +1,7 @@
 ---
 title: 'Python::String字串'
 category:
-  - Node
+  - Note
 date: 2014-08-09 10:26:23
 tags:
 - Python

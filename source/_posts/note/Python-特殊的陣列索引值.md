@@ -1,7 +1,7 @@
 ---
 title: 'Python::特殊的陣列索引值'
 category:
-  - Node
+  - Note
 date: 2014-07-18 10:17:51
 tags:
 - Python

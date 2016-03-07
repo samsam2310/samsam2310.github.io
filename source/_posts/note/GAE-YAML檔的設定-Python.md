@@ -1,7 +1,7 @@
 ---
 title: 'GAE::YAML檔的設定(Python)'
 category:
-  - Node
+  - Note
 date: 2014-06-07 10:12:55
 tags:
 - GAE

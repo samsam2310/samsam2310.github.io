@@ -1,7 +1,7 @@
 ---
 title: 'Standard Template Library(STL)&&常用工具&&黑魔法'
 category:
-  - Node
+  - Note
 date: 2014-03-28 06:01:21
 tags:
 - C++

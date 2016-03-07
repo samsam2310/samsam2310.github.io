@@ -1,7 +1,7 @@
 ---
 title: '常見的HTTP Method的不同性質分析：Get,Post和其他4種Method的差別'
 category:
-  - Node
+  - Note
 date: 2015-10-21 10:27:34
 tags:
 - HTTP

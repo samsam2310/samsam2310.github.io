@@ -1,7 +1,7 @@
 ---
 title: 'Python::函式可變參數(參數前加星號)'
 category:
-  - Node
+  - Note
 date: 2014-08-03 10:20:04
 tags:
 - Python

@@ -1,7 +1,7 @@
 ---
 title: 'Python::取得網站的headers 透過urllib2'
 category:
-  - Node
+  - Note
 date: 2014-08-07 10:24:35
 tags:
 - Python

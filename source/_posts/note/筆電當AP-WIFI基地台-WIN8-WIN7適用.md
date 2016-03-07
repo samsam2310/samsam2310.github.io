@@ -1,7 +1,7 @@
 ---
 title: 筆電當AP-WIFI基地台 WIN8 WIN7適用
 category:
-  - Node
+  - Note
 date: 2014-06-01 10:33:33
 tags:
 - Windows
