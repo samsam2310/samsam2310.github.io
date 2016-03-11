@@ -87,7 +87,7 @@ for(int i = 0; i < (int)1e7; i++){
 ``` c++
 ios_base::sync_with_stdio(false);
 for(int i = 0; i < (int)1e7; i++){
-    cout<<rand()<<endl;
+    cout<<rand()<<'\n';
 }
 ```
 結果：
