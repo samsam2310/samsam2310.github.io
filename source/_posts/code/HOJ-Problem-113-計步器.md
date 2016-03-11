@@ -6,7 +6,7 @@ tags:
   - Tree
 category:
   - Code 備忘錄
-  - Divide & Cunquer
+  - Divide & Conquer
 date: 2014-03-24 05:29:14
 ---
 

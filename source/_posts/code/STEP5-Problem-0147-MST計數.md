@@ -8,7 +8,7 @@ tags:
   - DFS
 category:
   - Code 備忘錄
-  - Greph
+  - Graph
 date: 2014-03-27 05:52:54
 ---
 

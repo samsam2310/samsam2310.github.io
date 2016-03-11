@@ -6,7 +6,7 @@ tags:
   - Binary Search
 category:
   - Code 備忘錄
-  - Divide & Cunquer
+  - Divide & Conquer
 date: 2014-03-26 05:41:00
 ---
 
