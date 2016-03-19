@@ -7,6 +7,7 @@ tags:
 - New Blog
 ---
 
+ > [チマメはろうぃん！ | わき [pixiv]](//www.pixiv.net/member_illust.php?mode=medium&illust_id=52971823)
 {% asset_img 001.jpg わき - チマメはろうぃん！(id=52971823) %}
 
 第一次買的Domain chino.taipei，就這樣設定完了~~
