@@ -158,6 +158,8 @@ for(int i = 0; i < (int)1e7; i++){
 ios_base::sync_with_stdio(false);
 for(int i = 0; i < (int)1e7; i++){
     cin>>A[i];
+}
+for(int i = 0; i < (int)1e7; i++){
     cout<<A[i]+1<<'\n';
 }
 ```
