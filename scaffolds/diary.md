@@ -6,7 +6,10 @@ category:
 tags:
 ---
 
-{% asset_img slug [title] %}
+ > [Title](//link)
+{% asset_img 001.jpg Name(id=id) %}
+
+-----------------------
 
 <!--more-->
 
