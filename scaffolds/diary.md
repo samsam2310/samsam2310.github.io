@@ -6,7 +6,7 @@ category:
 tags:
 ---
 
- > [Title](//link)
+ > [IMG_Title](//IMG_link)
 {% asset_img 001.jpg Name(id=id) %}
 
 -----------------------
