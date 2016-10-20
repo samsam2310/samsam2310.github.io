@@ -43,7 +43,7 @@ Mv to diary
 
 #### note
 ``` bash
-hexo new diary "TITLE"
+hexo new note "TITLE"
 ```
 Mv to note
 
