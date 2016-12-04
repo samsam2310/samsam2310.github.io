@@ -1,6 +1,6 @@
 # Chino's
 My blog.
-Powered by Hexo[https://hexo.io/].
+Powered by [Hexo](https://hexo.io/) .
 
 Before add new post, modify _config.yml.
 
