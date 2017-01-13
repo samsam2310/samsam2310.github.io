@@ -23,6 +23,11 @@ npm install hexo-generator-sitemap --save
 npm install hexo-generator-feed --save
 ```
 
+
+### Add new Post
+``` bash
+
+```
 ### Add new post
 ``` bash
 git fetch origin
