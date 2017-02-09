@@ -2,9 +2,10 @@
 title: Algorithm-DP優化之四邊形不等式優化
 tags:
   - C++
+  - Algorithm
 category:
   - Code 備忘錄
-  - Algorithm
+  - DP
 date: 2016-04-02 13:41:02
 ---
 

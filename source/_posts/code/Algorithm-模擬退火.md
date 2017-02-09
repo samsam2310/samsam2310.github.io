@@ -2,10 +2,11 @@
 title: 'Algorithm::模擬退火'
 tags:
   - C++
+  - Algorithm
   - 模擬退火
 category:
   - Code 備忘錄
-  - Algorithm
+  - Search
 date: 2015-03-14 09:15:58
 ---
 
