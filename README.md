@@ -6,15 +6,32 @@ Before add new post, modify _config.yml.
 
 
 ### After clone.
+
+Install npm.
+Install highlight.js submoudles.
+
 ``` bash
 npm install
+
+git submodule init
+git submodule update
+cd highlight.js/
+node tools/build.js -t node
+cd build
+npm link
+cd ../../
+npm link highlight.js
 ```
 
+### Update highlight.js
 
-### Add new Post
 ``` bash
-
+git submodule update
+cd highlight.js/
+node tools/build.js -t node
 ```
+
+
 ### Add new post
 ``` bash
 git fetch origin
@@ -39,10 +56,12 @@ hexo new note "TITLE"
 ```
 Mv to note
 
+
 ### Compile
 ``` bash
 hexo g
 ```
+
 
 ### Testing
 Start static http server.
@@ -50,10 +69,11 @@ Start static http server.
 hexo server -s
 ```
 
+
 ### Deploy to github
 ``` bash
-hexo d
 git add .
 git commit -m 'XXX'
 git push origin source
+hexo g -d
 ```
