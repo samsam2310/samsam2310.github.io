@@ -16,6 +16,7 @@ npm install
 git submodule init
 git submodule update
 cd highlight.js/
+npm install
 node tools/build.js -t node
 cd build
 npm link
