@@ -9,6 +9,7 @@ Before add new post, modify _config.yml.
 
 Install npm.
 Install highlight.js submoudles.
+Install hexo-cli (npm install hexo-cli -g)
 
 ``` bash
 npm install

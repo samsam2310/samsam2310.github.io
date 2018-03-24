@@ -4,8 +4,9 @@ category:
   - Note
 date: 2016-02-24 12:59:55
 tags:
-- ubuntu
-- driver
+- Ubuntu
+- Linux
+- Driver
 ---
 
 困擾我快兩年的問題，今天終於解決了。

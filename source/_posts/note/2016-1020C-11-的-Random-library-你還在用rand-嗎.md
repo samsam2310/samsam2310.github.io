@@ -4,6 +4,7 @@ category:
   - Note
 date: 2016-10-20 23:36:19
 tags:
+ - C++
 ---
 
 最近寫程式作業，要用蒙地卡羅求Pi值，所以要用到 random 函數。
