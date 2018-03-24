@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TIOJ::IOI::1886 . 【IOI2015】Teams 一堆提姆 | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="http://tioj.ck.tp.edu.tw/problems/1886 這題是IOI 2015，TOI又要考考古題了很討厭QAQ。 這題是資料結構題，除了持久化線段樹之外，還有另外一個小的詭異資料結構。">
+<meta name="keywords" content="C++,TIOJ,IOI,持久化,線段樹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TIOJ::IOI::1886 . 【IOI2015】Teams 一堆提姆|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/code-2016-0316TIOJ-IOI-1886-【IOI2015】Teams-一堆提姆/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="http://tioj.ck.tp.edu.tw/problems/1886 這題是IOI 2015，TOI又要考考古題了很討厭QAQ。 這題是資料結構題，除了持久化線段樹之外，還有另外一個小的詭異資料結構。">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-23T19:15:08.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TIOJ::IOI::1886 . 【IOI2015】Teams 一堆提姆|Chino&#39;s">
+<meta name="twitter:description" content="http://tioj.ck.tp.edu.tw/problems/1886 這題是IOI 2015，TOI又要考考古題了很討厭QAQ。 這題是資料結構題，除了持久化線段樹之外，還有另外一個小的詭異資料結構。">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-code-2016-0316TIOJ-IOI-1886-【IOI2015】Teams-一堆提姆" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/code-2016-0316TIOJ-IOI-1886-【IOI2015】Teams-一堆提姆/" class="article-date">
+  <time datetime="2016-03-16T06:07:28.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-備忘錄/">Code 備忘錄</a>►<a class="article-category-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TIOJ::IOI::1886 . 【IOI2015】Teams 一堆提姆
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://tioj.ck.tp.edu.tw/problems/1886" target="_blank" rel="noopener">http://tioj.ck.tp.edu.tw/problems/1886</a></p>
+<p>這題是IOI 2015，TOI又要考考古題了很討厭QAQ。</p>
+<p>這題是資料結構題，除了持久化線段樹之外，還有另外一個小的詭異資料結構。</p>
+<a id="more"></a>
+<p>題目是這樣的，你有一堆人，每個人都可以跟一定範圍的人數的人合作，然後你有一些任務，每個任務都需要一定的人才能完成，你想要把這些人分組去完成任務，每個人只能做一個任務，問你有沒有辦法做完這些任務。</p>
+<p>題目會變成，給你一堆區間，然後有一些任務會需要一定人數，直接把區間照左界排序，然後用貪心性質，也就是每次要找人去做某個任務的時候選則可以的人中右界最小的（這個很直觀）。因為題目有很多詢問，每個詢問複雜度就是O((n + m) log n)，n 是人數，m是該次詢問的任務數。</p>
+<p>這樣很顯然在每筆詢問的m都很小的時候（所有詢問的m總和是定值，所以m愈小、詢問愈多），時間會爛掉。</p>
+<p>比較有道理的作法是DP，而且是很有趣的DP，沒被捏都不知道，就是二分圖的Hall定理。</p>
+<p>首先假設我們有一個任務需要K個人，我們可以新增一張二分圖，在集合X裡放入K個點，然後把這些點連到可以做這些任務的人（那個區間包含K），把這些人放進集合Y，只要這張二分圖的X可以完美匹配，我們就可以找到K個人完成這個任務。依照這樣，我們把每個任務都拆開放進X，並連到Y，然後只要找的到完美匹配就可以完成這些任務。<br>怎們樣的條件下一定可以完成呢？二分圖的Hall定理告訴我們，只要集合X的每個子集X’的大小，都小於等於X’所連到的集合Y的子集Y’的大小，那就一定存在完美匹配，反之則一定不行！！！！</p>
+<p>也就是說，我們現在枚舉一些任務，把可以做這些任務的人都挑出來，只要人數大於任務需要的人數，就可以完成任務，只要任務序列的每個子序列都符合條件，都可以被完成，那就一定可以完成全部的任務。</p>
+<p>於是我們就可以想到一個m（任務數量）平方的DP，去DP某個任務子序列，來確定任務是不是不可以被完成。因為Hall定理說只要一個子集不符合規定就不可能匹配，所以我們試著用DP去找最差的結果，如果最差的不符合規定就知道無法完成。<br>設DP[i]是以任務i為結尾的任務子序列，可以做這些任務的人數減掉這些任務需要的人數的最小值。<br>轉移就是j從0到i-1，取min(DP[j] + Z(j,i) - K_i)，其中K_i是做第i個任務需要的人，Z(j,i)是可以做i任務但是卻不能做j任務的人數，也就是左界在[K_j+1,K_i]之間，右界大於K_i的人，這個可以用持久化線段樹去查詢，這樣O（m^2 log n）就可以完成這個DP了，只要任何一個DP值小於0，代表無法完成任務。</p>
+<p>持久化線段樹的作法就是開一個值域線段樹，然後你直接根據左界分成N個版本，每個版本 i 代表左界小於等於 K_i 的那些人，之後右界就當作單點插入，有點像找區間第K小時實作的持久化線段樹，可以參考一下。</p>
+<p>以上作法還是不夠快，這時可以用一種作法，就是當 m &lt; sqrt(n)使用第2種作法，反之使用第1種貪心法，這樣有機會（基本上可以AC了）通過。</p>
+<p>另外一種比較穩定的解法，我們要先觀察剛剛的 m 平方DP，我們想一下當 i&lt;j<k 時，如果要從dp[i]和dp[j]轉移到dp[k]，我們可以保證，如果i比j還要好，那對於所有l="">k，轉移到DP[l]時，i還是比j好。為什麼，我們看看下面的式子：<br>如果i比j好，代表 DP[i] + Z(i,k) &lt;= DP[j] + Z(j,k)。<br>移項得到 DP[j] - DP[i] &gt;= Z(j,k) - Z(i,k) = 左界在[K_i+1,K_j]中，右界大於K_k的人，這點我覺得式子寫出來就很直觀了，就不多做說明了。<br>因為後面那個東西，在k愈大的狀況，只會變小不會變大（左界固定，右界愈右邊符合的人當然愈少），所以這東西是有單調性的，也就是只要符合DP[i] + Z(i,k) &lt;= DP[j] + Z(j,k)，對於所有d大於k，DP[i] + Z(i,d) &lt;= DP[j] + Z(j,d) 也都會符合，這就是DP優化中的四邊形單調性。</k></p>
+<p>於是我們DP時要維護一個資料結構Magic（我自己取的XD，簡稱MG），對於i&lt;j，DP[j]一定DP[i]好，所以MG的最後一個就是我們要的最小值，在push任何一個值進去時，我們可以計算一個時間，代表最後一個值什麼時候會殺掉這個新的值，然後把他丟進heap裡，然後每次查詢前都先更新MG，也就是看看現在的時間（這題的狀況就是任務的人數，我們要按照小到大去做，而我們可以知道當人數超過某個值的時候，某些點可以把後面的點殺掉），把heap頂端（時間最小）的值拿出來，看看是不是已經死了，不是就把他殺掉。</p>
+<p>實作MG可以用STL list，然後多開一個vector去存每一個位置的iterator，list是用來加速找前後的節點，vector是用來random accesses。</p>
+<p>另外，計算死亡時間時，我們需要知道對於 i&lt;j，哪個時間（座標）DP[j] - DP[i] 會大於等於 左界在[K_i+1,K_j]中，右界大於K_k的人，其中最小的k就是我們要的死亡時間，可以透過在兩顆線段樹上走來計算，或是直接二分搜k，用單顆線段樹去驗證答案，後者會多一個log但是還是可以接受。這樣就有一個O（m logn）的作法了。</p>
+<p>我因為邊界問題WA了好久QAQ，一定要注意邊界、upper bound 還是 lowwer bound。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(n) Fi(i,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fi(i,n) Fl(i,0,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fl(i,l,n) for(int i=l;i&lt;n;i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">500003</span>, M = <span class="number">200003</span>, MX = N*<span class="number">40</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</span><br><span class="line">PII D[N];</span><br><span class="line"><span class="keyword">int</span> ST[N],st, DP[N], S[M];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Seg</span>&#123;</span></span><br><span class="line">    <span class="keyword">static</span> Seg ST[MX], *p;</span><br><span class="line">    Seg *lc,*rc;</span><br><span class="line">    <span class="keyword">int</span> sz;</span><br><span class="line">    Seg()&#123; &#125;</span><br><span class="line">    Seg(<span class="keyword">int</span> l,<span class="keyword">int</span> r):sz(<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(l==r)<span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">        lc = <span class="keyword">new</span>(p++) Seg(l,mid);</span><br><span class="line">        rc = <span class="keyword">new</span>(p++) Seg(mid+<span class="number">1</span>,r);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Seg* <span class="title">ins</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> *X, <span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">        Seg *nw = <span class="keyword">new</span>(p++) Seg(*<span class="keyword">this</span>);</span><br><span class="line">        nw-&gt;sz += s;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;r)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> ts = (upper_bound(X,X+s,mid) - X);</span><br><span class="line">            <span class="keyword">if</span>(ts)nw-&gt;lc = lc-&gt;ins(l,mid,X,ts);</span><br><span class="line">            <span class="keyword">if</span>(ts&lt;s)nw-&gt;rc = rc-&gt;ins(mid+<span class="number">1</span>,r,X+ts,s-ts);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nw;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;=l)<span class="keyword">return</span> sz;</span><br><span class="line">        <span class="keyword">if</span>(x&gt;r)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> lc-&gt;query(l,mid,x) + rc-&gt;query(mid+<span class="number">1</span>,r,x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;*RT[N], Seg::ST[MX], *Seg::p = Seg::ST;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(Seg *lc, Seg *rc, <span class="keyword">int</span> x,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> rc-&gt;query(<span class="number">1</span>,n,x) - lc-&gt;query(<span class="number">1</span>,n,x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">s_query</span><span class="params">(Seg *lc, Seg *rc, <span class="keyword">int</span> y, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 這個函數有兩種實作方法。</span></span><br><span class="line">    <span class="comment">// 1.走訪線段樹的方法</span></span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">1</span>, r = n;</span><br><span class="line">    <span class="keyword">if</span>(rc-&gt;sz - lc-&gt;sz &lt; y)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(rc-&gt;rc-&gt;sz - lc-&gt;rc-&gt;sz &lt;= y)&#123;</span><br><span class="line">            y -= rc-&gt;rc-&gt;sz - lc-&gt;rc-&gt;sz;</span><br><span class="line">            r = mid;</span><br><span class="line">            lc = lc-&gt;lc;</span><br><span class="line">            rc = rc-&gt;lc;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            l = mid+<span class="number">1</span>;</span><br><span class="line">            lc = lc-&gt;rc;</span><br><span class="line">            rc = rc-&gt;rc;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l+<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.下面是2分搜的方法</span></span><br><span class="line">    <span class="comment">// int ans = l+1;</span></span><br><span class="line">    <span class="comment">// l = 0, r = n;</span></span><br><span class="line">    <span class="comment">// while(l&lt;r-1)&#123;</span></span><br><span class="line">    <span class="comment">//     int mid = (l+r)/2;</span></span><br><span class="line">    <span class="comment">//     if(query(t1,t2,mid,n) &gt; tmpy)l = mid;</span></span><br><span class="line">    <span class="comment">//     else r = mid;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="comment">// return r;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Magic</span>&#123;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator&gt; P;</span><br><span class="line">    <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; IND;</span><br><span class="line">    priority_queue&lt;PII, <span class="built_in">vector</span>&lt;PII&gt;,greater&lt;PII&gt;&gt; dead;</span><br><span class="line">    Magic()&#123;</span><br><span class="line">        IND.push_back(<span class="number">0</span>);</span><br><span class="line">        P.push_back(IND.begin());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(!dead.empty() &amp;&amp; dead.top().first&lt;=x)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = dead.top().second;</span><br><span class="line">            dead.pop();</span><br><span class="line">            <span class="keyword">if</span>(P[tmp] != IND.end())&#123;</span><br><span class="line">                <span class="keyword">if</span>(next(P[tmp]) != IND.end())&#123;</span><br><span class="line">                    <span class="keyword">int</span> pre = *prev(P[tmp]), nx = *next(P[tmp]);</span><br><span class="line">                    dead.push(PII(s_query(RT[S[pre]], RT[S[nx]], DP[nx] - DP[pre], n), nx));</span><br><span class="line">                &#125;</span><br><span class="line">                IND.erase(P[tmp]);</span><br><span class="line">                P[tmp] = IND.end();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> now = P.size(), pre = IND.back();</span><br><span class="line">        <span class="keyword">int</span> ti = s_query(RT[S[pre]], RT[S[now]], DP[now] - DP[pre], n);</span><br><span class="line">        IND.push_back(now);</span><br><span class="line">        P.push_back(prev(IND.end()));</span><br><span class="line">        dead.push(PII(ti, now));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">back</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> IND.back();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">main()&#123;</span><br><span class="line">    ios_base::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t,n,q,m;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        Seg::p = Seg::ST;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">        RT[<span class="number">0</span>] = <span class="keyword">new</span>(Seg::p++) Seg(<span class="number">1</span>,n);</span><br><span class="line">        F(n)<span class="built_in">cin</span>&gt;&gt;D[i].first&gt;&gt;D[i].second;</span><br><span class="line">        sort(D,D+n);</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>;</span><br><span class="line">        st = <span class="number">0</span>;</span><br><span class="line">        F(n)&#123;</span><br><span class="line">            RT[i+<span class="number">1</span>] = RT[i];</span><br><span class="line">            <span class="keyword">while</span>(l&lt;n&amp;&amp;D[l].first&lt;=i+<span class="number">1</span>)ST[st++] = D[l].second,l++;</span><br><span class="line">            <span class="keyword">if</span>(st)&#123;</span><br><span class="line">                RT[i+<span class="number">1</span>] = RT[i+<span class="number">1</span>]-&gt;ins(<span class="number">1</span>,n,ST,st);</span><br><span class="line">                st = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;q;</span><br><span class="line">        <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">            F(m)<span class="built_in">cin</span>&gt;&gt;S[i+<span class="number">1</span>];</span><br><span class="line">            sort(S+<span class="number">1</span>,S+m+<span class="number">1</span>);</span><br><span class="line">            DP[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">            Magic mg;</span><br><span class="line">            <span class="keyword">bool</span> ans = <span class="literal">true</span>;</span><br><span class="line">            F(m)&#123;</span><br><span class="line">                mg.update(S[i+<span class="number">1</span>], n);</span><br><span class="line">                DP[i+<span class="number">1</span>] = DP[mg.back()] + query(RT[S[mg.back()]],RT[S[i+<span class="number">1</span>]],S[i+<span class="number">1</span>], n) - S[i+<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span>(DP[i+<span class="number">1</span>]&lt;<span class="number">0</span>)&#123;</span><br><span class="line">                    ans = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                mg.push(n);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;(ans?<span class="number">1</span>:<span class="number">0</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/code-2016-0316TIOJ-IOI-1886-【IOI2015】Teams-一堆提姆/" data-id="cjf5lss2s000usfq4amxr9kxd" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/code-2016-0316TIOJ-IOI-1886-【IOI2015】Teams-一堆提姆/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOI/">IOI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TIOJ/">TIOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/持久化/">持久化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/線段樹/">線段樹</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/code-2016-0316TIOJ-IOI-1884-【IOI2015】Boxes-一堆盒子/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TIOJ::IOI::1884 . 【IOI2015】Boxes 一堆盒子
+        
+      </div>
+    </a>
+  
+  
+    <a href="/note-2016-0311C-的輸出入cin-cout和scanf-printf誰比較快？/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C++的輸出入cin/cout和scanf/printf誰比較快？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/code-2016-0316TIOJ-IOI-1886-【IOI2015】Teams-一堆提姆/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

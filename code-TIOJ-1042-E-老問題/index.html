@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TIOJ::1042 . E.老問題 | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="二分圖最大權匹配，KM演算法。">
+<meta name="keywords" content="C++,TIOJ,NPSC,二分圖,KM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TIOJ::1042 . E.老問題|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/code-TIOJ-1042-E-老問題/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="二分圖最大權匹配，KM演算法。">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-23T19:15:08.173Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TIOJ::1042 . E.老問題|Chino&#39;s">
+<meta name="twitter:description" content="二分圖最大權匹配，KM演算法。">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-code-TIOJ-1042-E-老問題" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/code-TIOJ-1042-E-老問題/" class="article-date">
+  <time datetime="2015-07-31T01:37:42.000Z" itemprop="datePublished">2015-07-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-備忘錄/">Code 備忘錄</a>►<a class="article-category-link" href="/categories/Code-備忘錄/Graph/">Graph</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TIOJ::1042 . E.老問題
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>二分圖最大權匹配，KM演算法。</p>
+<a id="more"></a>
+<p>這題之前一直覺得很難懂，一定都是網路上的講解太複雜了(哼!?)，雖然匈牙利系列的演算法就是很難懂啦!!!</p>
+<p>參考連結：<br> <a href="http://www.twwiki.com/wiki/KM%E6%BC%94%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">http://www.twwiki.com/wiki/KM%E6%BC%94%E7%AE%97%E6%B3%95</a><br><a href="http://cbdcoding.blogspot.tw/2015/02/tioj-1042-e.html" target="_blank" rel="noopener">code倉庫</a> - 可以看CBD的code應該比我的好讀</p>
+<p>重點就是KM演算法!!!!<br>KM演算法有分成 一般N^4 和 N^3 兩種，可是我試了N^3結果比N^4慢兩倍= =。<br>總覺得是因為N才100真的太小，N^3增加的常數還比較大。</p>
+<p>這種匈牙利系列的演算法特色就是code很短，懂了之後很簡單，可是很難懂。</p>
+<p>首先，你要先會<a href="/code/TIOJ-1069-E-魔法部的任務/">匈牙利演算法</a>。</p>
+<p>好了，KM演算法就是把<strong>二分圖最大權匹配問題</strong>，轉換成<strong>二分圖完美匹配問題</strong>的一種演算法。</p>
+<p>先設定一個東西，大部分人都稱他為「<strong>頂標</strong>」。</p>
+<p>把二分圖分成X(女生)跟Y(男生)，分別代表二分圖的兩邊點集合。其中<strong>每個點都有一個頂標</strong>，可以把它當成點的權重。<br>在任何的時候，對於每一條邊(戀情)，他的兩端點的<strong>頂標和</strong>，一定要<strong>大於等於</strong>邊的<strong>權重</strong>(美滿程度)，這是我們設定好的。</p>
+<p>一開始，我們先把每個Y頂標設定成0，X頂標設定成那個點到Y集合裡的點中，邊權最大的(<strong>那個女生最喜歡的男生</strong>)。(也可以反過來，X頂標都是0，Y頂標是最大邊權，二分圖基本上來說，XY對調都可以。)</p>
+<p>然後，我們做匈牙利，找出完美匹配，但是我們不是對每條邊做，而是對「兩端點頂標和<strong>等於</strong>邊權」的邊做。<br>對，我們發現，一開始這些邊就是每個X點連到Y點中最大的那幾條邊(那個女生最喜歡的男生)，如果可以順利匹配，那我們就做完了，但是很不幸的，一定有X的最大邊連到的Y是同一個Y。(<strong>兩個女的最喜歡同一個男的</strong>。)</p>
+<p>這時候怎麼辦，當然是犧牲其中一個人叫他去找別人啦。但是要找誰呢?<br>當然是<strong>機會成本最小的</strong>！<br>這就是KM的精華。<br>我們先找出機會成本，假設每一個女生跟他<strong>沒看上的男生</strong>(兩端點頂標和<strong>不等於</strong>邊權的邊)交往，會損失的美滿度(<strong>頂標和 - 邊權</strong>)當作機會成本，我們當然希望機會成本越小越好。<br>所以機會成本就是上面考慮的值中最小的。<br>然後我們對頂標做一個操作，<br>把所有<strong>參加配對的女生</strong>(X)頂標<strong>減掉</strong> 機會成本，那些<strong>被喜歡的男生</strong>(Y)頂標<strong>加上</strong> 機會成本。</p>
+<p>這樣操作完之後，我們發現很神奇的，原本考慮的那幾組配對(考慮的邊)因為一端加一端減，狀態不變，但是原本那些女生<strong>不喜歡的男生</strong>，因為<strong>頂標和變小</strong>(女生的標準降低?!)變得可以考慮了！<br>所以<strong>可能就變多了</strong>，我們可以<strong>再做一次匈牙利</strong>。</p>
+<p>所以KM的流程就是<br><strong>一個一個女生加入</strong>，然後這些女生開始選男生(做匈牙利)，如果吵架(匈牙利失敗)，就找出最小的機會成本然後降低女生的門檻，然後再做，直到女生們都找到男生了，再加入下一個女生，直到所有女生都加入了，我們就找到最完美的匹配了。</p>
+<p>coding細節就是，<br>X頂標是X希望的匹配中最大的，Y頂標是0，對於每個X做匈牙利，如果失敗就修改頂標。<br>找機會成本是關鍵，<br>其實機會成本就是 頂標和 - 邊權，因為我們知道頂標和一定大於邊權(我們設定好了)。<br>但是不要考慮 頂標和 = 邊權 的邊，因為那沒有意義。<br>然後因為X是一個一個加入的，所以對於那些跟<strong>還沒加入的X</strong>有關的邊，我們也不用管。</p>
+<p>到這裡如果你看得懂我說的(我到底在說什麼??!)，你就會明白KM就是不斷加入女生然後讓他們打架直到都找到男生再加入下一個女生的演算法(疑?)</p>
+<p>如果你看不懂，讀一下code吧</p>
+<h4 id="2015-10-21"><a href="#2015-10-21" class="headerlink" title="2015/10/21"></a>2015/10/21</h4><p>後來想想，頂標更新應該更新全部的X和沒去過的Y才對，不過不這樣做也不會影響正確性，因為X會自動放寬。這樣頂多多一次放寬（修改頂標）動作而已。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(n) Fi(i,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fi(i,n) Fl(i,0,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fl(i,l,n) for(int i=0;i&lt;n;i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">101</span>, INF = <span class="number">2147483647</span>;</span><br><span class="line"><span class="keyword">int</span> n,G[N][N],back[N],tagX[N],tagY[N];</span><br><span class="line"><span class="keyword">bool</span> visX[N],visY[N];</span><br><span class="line"><span class="comment">// 輸入優化</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gin</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;<span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">while</span>(c=getchar(),(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&amp;&amp;c!=<span class="string">'-'</span>);</span><br><span class="line">    <span class="keyword">bool</span> flag=c==<span class="string">'-'</span>;</span><br><span class="line">    x=flag?<span class="number">0</span>:c-<span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span>(c=getchar(),c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)x=x*<span class="number">10</span>+c-<span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">return</span> flag?(-x):x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 匈牙利</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> now)</span></span>&#123;</span><br><span class="line">    visX[now] = <span class="literal">true</span>;</span><br><span class="line">    F(n)<span class="keyword">if</span>(tagX[now]+tagY[i] == G[now][i])&#123;</span><br><span class="line">        visY[i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(back[i]==<span class="number">-1</span> || !visX[back[i]]&amp;&amp;dfs(back[i]))&#123;</span><br><span class="line">            back[i] = now;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">    <span class="keyword">while</span>(n=gin(),n)&#123;</span><br><span class="line">        F(n)Fi(j,n)&#123;</span><br><span class="line">            G[i][j]=gin();</span><br><span class="line">            <span class="keyword">if</span>(G[i][j]&lt;<span class="number">0</span>)G[i][j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(tagY,<span class="number">0</span>,<span class="keyword">sizeof</span>(tagY));</span><br><span class="line">        F(n)&#123;</span><br><span class="line">            tagX[i]=<span class="number">0</span>;</span><br><span class="line">            Fi(j,n)tagX[i]=max(tagX[i],G[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memset</span>(back,<span class="number">-1</span>,<span class="keyword">sizeof</span>(back));</span><br><span class="line">        F(n)&#123;</span><br><span class="line">            <span class="built_in">memset</span>(visX,<span class="number">0</span>,<span class="keyword">sizeof</span>(visX));</span><br><span class="line">            <span class="built_in">memset</span>(visY,<span class="number">0</span>,<span class="keyword">sizeof</span>(visY));</span><br><span class="line">            <span class="keyword">while</span>(!dfs(i))&#123;</span><br><span class="line">                <span class="keyword">int</span> cut=INF;</span><br><span class="line">                <span class="comment">// 找機會成本</span></span><br><span class="line">                Fi(j,n)<span class="keyword">if</span>(visX[j])Fi(k,n)<span class="keyword">if</span>(!visY[k])&#123;</span><br><span class="line">                    cut = min(cut, tagX[j]+tagY[k]-G[j][k]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 操作頂標</span></span><br><span class="line">                Fi(j,n)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(visX[j])tagX[j] -= cut;</span><br><span class="line">                    <span class="keyword">if</span>(visY[j])tagY[j] += cut;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">memset</span>(visX,<span class="number">0</span>,<span class="keyword">sizeof</span>(visX));</span><br><span class="line">                <span class="built_in">memset</span>(visY,<span class="number">0</span>,<span class="keyword">sizeof</span>(visY));</span><br><span class="line">                cut=INF;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        F(n)ans+=G[back[i]][i];</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/code-TIOJ-1042-E-老問題/" data-id="cjf5lss5g0083sfq4sitw1mzr" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/code-TIOJ-1042-E-老問題/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KM/">KM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NPSC/">NPSC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TIOJ/">TIOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分圖/">二分圖</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/code-UVa-1153-Keep-the-Customer-Satisfied/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          UVa::1153 - Keep the Customer Satisfied
+        
+      </div>
+    </a>
+  
+  
+    <a href="/code-TIOJ-1698-Problem-H-神殿裡的觸手/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TIOJ::1698 . Problem H 神殿裡的觸手</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/code-TIOJ-1042-E-老問題/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

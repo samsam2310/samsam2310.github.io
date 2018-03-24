@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記 | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自從上次灌好 Archlinux 後其實我一直想要來寫一篇筆記，可是一直都沒有真的來寫。結果過了一年，因為換電腦又重灌了一次，這次來把它寫下來。 這篇的重點會擺在如何安裝一個個人工作用的 Archlinux 環境，其實步驟意外的不難，當然是過程中不要出意外啦XD Archlinux 好處是單純，乾淨，很容易了解並自己調整內容，也很適合拿來學習熟悉 Linux 系統。加上社群活躍，更新快速，拿來當開">
+<meta name="keywords" content="Linux,Archlinux,Gnome-Shell,Plymouth">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="自從上次灌好 Archlinux 後其實我一直想要來寫一篇筆記，可是一直都沒有真的來寫。結果過了一年，因為換電腦又重灌了一次，這次來把它寫下來。 這篇的重點會擺在如何安裝一個個人工作用的 Archlinux 環境，其實步驟意外的不難，當然是過程中不要出意外啦XD Archlinux 好處是單純，乾淨，很容易了解並自己調整內容，也很適合拿來學習熟悉 Linux 系統。加上社群活躍，更新快速，拿來當開">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-24T17:16:11.651Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記|Chino&#39;s">
+<meta name="twitter:description" content="自從上次灌好 Archlinux 後其實我一直想要來寫一篇筆記，可是一直都沒有真的來寫。結果過了一年，因為換電腦又重灌了一次，這次來把它寫下來。 這篇的重點會擺在如何安裝一個個人工作用的 Archlinux 環境，其實步驟意外的不難，當然是過程中不要出意外啦XD Archlinux 好處是單純，乾淨，很容易了解並自己調整內容，也很適合拿來學習熟悉 Linux 系統。加上社群活躍，更新快速，拿來當開">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/" class="article-date">
+  <time datetime="2018-03-23T19:24:19.000Z" itemprop="datePublished">2018-03-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Note/">Note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自從上次灌好 Archlinux 後其實我一直想要來寫一篇筆記，可是一直都沒有真的來寫。<br>結果過了一年，因為換電腦又重灌了一次，這次來把它寫下來。</p>
+<p>這篇的重點會擺在如何安裝一個個人工作用的 Archlinux 環境，其實步驟意外的不難，當然是過程中不要出意外啦XD</p>
+<p>Archlinux 好處是單純，乾淨，很容易了解並自己調整內容，也很適合拿來學習熟悉 Linux 系統。加上社群活躍，更新快速，拿來當開發環境也很適合，整體來說都是個值得試試看的系統。</p>
+<p>灌好桌面大概長這樣：<br><img src="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/screen.png" title="螢幕節圖"></p>
+<a id="more"></a>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>首先提一下，如果是沒什麼灌過作業系統，或是沒有灌過 Linux 的人如果下定決心想要熟悉 Linux 無訪，但若只是要搞個 Linux 環境寫作業還是幹麻的，推薦還是去灌 Ubuntu 就好。<br>Archlinux 是給喜歡自己校調系統的人使用的（？</p>
+<p>首先，灌系統還是要準備的有，東西是否都備份了，自己的硬體架構和驅動程式是不是可以被 Archlinux 支援等等的。不過通常都不會太慘啦？灌下去就知道了。<br>筆電通常問題比較多，因為硬體都是怪怪的硬體。聽說 Dell 的筆電的話會好一點，畢竟有原廠支援 Ubuntu 的樣子。其他的就看緣份吧？<br>如果你是從其他 Linux 重灌的，記得備份 ssh-key 和 bashrc 等等檔案。</p>
+<h2 id="安裝-Archlinux"><a href="#安裝-Archlinux" class="headerlink" title="安裝 Archlinux"></a>安裝 Archlinux</h2><p>這個步驟和大部分安裝過程類似，就先搞個 Archlinux 隨身碟，燒 Archlinux 的 ISO，接著用它開機等等的，接下來的步驟就照 Archlinux 官網的安裝教學。<br>Archlinux 是用指令一步一步完成安裝的，包括分割硬碟，mount，安裝 OS 基本套件等等可能會嚇到很多新手，不過其實也就那樣而已。</p>
+<p>關於分割硬碟，基本上因為是自己個人使用，割一個 / 磁區跟 swap 磁區就好。如果是 SSD 的話就不要 Swap 了太傷 SSD 了。</p>
+<p>我灌兩次大概遇過幾個問題：</p>
+<h3 id="Sercurity-Boot"><a href="#Sercurity-Boot" class="headerlink" title="Sercurity Boot"></a>Sercurity Boot</h3><p>這東西記得關掉，他是用來驗證你的 OS 是不是某些受信任的廠商(只有 Windows ??) 發行的，Linux 嘛，反正也不可能有人幫它簽，自己簽也沒什麼意義，所以直接關掉就好。</p>
+<h3 id="Grub2-Efi"><a href="#Grub2-Efi" class="headerlink" title="Grub2 Efi"></a>Grub2 Efi</h3><p>如果從舊的 BIOS MBR 開機方式轉過來的人可能不了解 UEFI 開機模式。其實很簡單，灌電腦的時候多割一個 EFI 磁區，然後照著 <a href="https://wiki.archlinux.org/index.php/GRUB_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">Archlinux Grub</a>) 文件上關於 UEFI 的步驟安裝 Grub 就可以了。<br>基本概念就是，現在 UEFI 系統會去硬碟裡搜尋 EFI 磁區，從裡面找開機檔來開機，很方便，可以跟 Windows 的 EFI 磁區分開達成雙重開機又不怕被 Windows 蓋回去了。<br>如果你是用蓋掉 Windows 的 EFI 磁區的方式安裝的要小心 Windows 把他的 EFI 磁區自動修復又搞回去。<br>如果不小心搞壞了 Windows 的 EFI 去網路上找 Windows 的指令修復就可以了。</p>
+<h3 id="Dell-eps-EFI-boot-bootx64-efi"><a href="#Dell-eps-EFI-boot-bootx64-efi" class="headerlink" title="Dell eps/EFI/boot/bootx64.efi"></a>Dell eps/EFI/boot/bootx64.efi</h3><p>這個最雷了…。想說怎麼 Grub 灌好了卻開不了，結果 Dell 會去檢查你的 eps/EFI/boot/bootx64.efi 這個檔案在不在…。基本上跟你的grub 的 .efi 檔同一層目錄下，新增一個 bootx64.efi 的檔案，就可以動了…。</p>
+<p>其他相關問題就去逛逛 Archlinux wiki 吧？</p>
+<h2 id="套件安裝"><a href="#套件安裝" class="headerlink" title="套件安裝"></a>套件安裝</h2><p>這裡寫幾個我安裝的套件：</p>
+<ul>
+<li>openssh vim sudo<br>這三個就不解釋了，反正會用到，vim 可能安裝系統的時候就會裝了，因為會去條設定檔XDsudo 的話就是先加個使用者當作平常自己用的使用者然後去設定下。</li>
+<li>base-devel git yaourt<br>base-devel 包含所有用來 build 套件的相關工具，也有 gcc g++ 等等，git 就 git。前面兩個是 yaourt 不可或缺的套件。<br>yaourt 是一個跟包裝 pacman 的套件管理程式，讓你可以像裝官方套件庫一樣安裝 AUR(Arch User Repository) 上的套件，讓你可以輕鬆安裝各種有的沒的，不然你本來要裝可能要自己 git clone 然後自己編譯再安裝，yaourt 就是幫你做這件事情。裝好之後，以後的 pacman 都用 yaourt 指令取代就可以了。不過 yaourt 本身也在 AUR 上，有兩種裝法，一種是暫時加入法國(?)的某個 arch 套件庫到 pacman，或是體驗一次原汁原味的 AUR 套件安裝，詳細網路上資料很多。</li>
+<li>gnome-shell gdm(gdm-plymouth)<br>如果你想要有桌面系統（個人電腦用純文字界面也是滿難用的），那 gnome-shell 是個好選擇，漂亮美觀，整體 UI 設計我覺的很好，有很多漂亮主題可以套用。如果你想用別的，也沒差？後面解釋細節。</li>
+<li>chinese-font chinese-input-method(ibus-chewing)(ibus-athiy)(run ibus-setup)<br>記得要裝個中文字體，不然會顯示不了中文！！其他語言也是要記得裝字體。字體的話就自己選一個喜歡的就好。<br>至於中文輸入法就是個大坑，gnome-shell 預設跟 ibus 結合，我灌不起來其他的又覺得ibus 還可以用，就用了XD</li>
+<li>sakura(Terminal)<br>因為新版的 gnome-terminal 移除了背景半透明的功能，為了有跟以前一樣的使用體驗，就發現了這個還不錯的 terminal，雖然預設很醜，不過套用設定檔之後就變得很漂亮了。可以參考我的<a href="https://github.com/samsam2310/weirc/blob/master/conf/sakura.conf" target="_blank" rel="noopener">設定檔</a>，記得放到 ~/.config/sakura/ 下面。</li>
+<li>google-chrome sublime-text-dev<br>這兩個沒意外要用 ARU 裝，有 yaourt 就直接 yaourt -S 就好了。就 Chrome 跟 Sublime Text 3 ，如果要裝 FF 什麼的請自便 （？</li>
+<li>zram(systemd-swap.service)<br>如果你的電腦只有 SSD ，那可能不會割 swap ，這時候可以使用 zram ，透過壓縮記憶體製造 swap 的效果，基本上可以達到 ram + swap == 3 * ram 大小的效果 ，還滿厲害的。詳細設定可以看<a href="https://wiki.archlinux.org/index.php/Improving_performance#Zram_or_zswap" target="_blank" rel="noopener">這裡</a>，不過其實灌 systemd-swap 這個套件後去設定檔打開然後 systemctl enable 這個服務就好。</li>
+</ul>
+<h2 id="Gnome-Shell-設定"><a href="#Gnome-Shell-設定" class="headerlink" title="Gnome-Shell 設定"></a>Gnome-Shell 設定</h2><h3 id="基本安裝"><a href="#基本安裝" class="headerlink" title="基本安裝"></a>基本安裝</h3><p>安裝方法很簡單，直接用 pacman 或 yaourt 裝就好了，裝好 gnome-shell 後要再裝一個桌面管理程式（可以想成登入畫面），我是裝了 gdm，它會負責登入和幫你啟動 gnome-shell。<br>基本上裝好後用 systemctl enable gdm 就可以了，沒有什麼特別會遇到的問題。</p>
+<h3 id="主題相關"><a href="#主題相關" class="headerlink" title="主題相關"></a>主題相關</h3><p>接下來就是安裝 gnome-tweak-tool 這個方便的工具，可以用來調整大部分的 gnome-shell 主題相關的設定。接下來就是去網路上找喜歡的主題套用，我使用了 gnome-arc-dark 和 paper-icons-theme-git 這兩個主題，其中後者是 icon-set ，提供好看的應用程式 logo，蠻意外的是它連 chrome sublime 等等的 icon 都有包含。裝好後，去 gnome-tweak-tool 選擇套用。</p>
+<p>另外可以裝一些 gnome-shell 的插件，要裝插件用 gnome-shell 預設付的網頁瀏覽器去瀏覽插件網站的話可以用滑鼠點一下 ON 就裝好很方便，Chrome 還是其他瀏覽器理論上也要可以，不過還要條設定什麼的，我是覺得直接用內建的瀏覽器充當插件管理員也不錯xD。<br>我裝了 dash-to-dock 和 BackSlide 兩個插件。前者是讓你可以把工具列做些調整，比如像 mac 一樣換到下面和一些很好用的功能。後者是可以自動定時換桌布。</p>
+<p>背景圖片上至桌布下至 Grub 選單都可以簡單換成自己喜歡的圖片，就只有 GDM 的密碼輸入畫面比較麻煩一點，可以參考 <a href="https://wiki.archlinux.org/index.php/GDM#Log-in_screen_background_image" target="_blank" rel="noopener">Arch Wiki</a>的說明去修改，需要改設定檔並重新產生一些 binary 檔案。</p>
+<p>Sakura terminal<br><img src="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/screen2.png" title="螢幕節圖"></p>
+<p>GDM 輸入密碼畫面<br><img src="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/screen3.png" title="螢幕節圖"></p>
+<p>螢幕鎖定畫面<br><img src="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/screen4.png" title="螢幕節圖"></p>
+<h3 id="中文輸入法"><a href="#中文輸入法" class="headerlink" title="中文輸入法"></a>中文輸入法</h3><p>中文輸入法一直是個痛苦的東西。gnone-shell 3 開始決定整合 ibus 變成一體的輸入法，所以也不建議使用其他輸入法了，因為整合後滿漂亮的，也比較好灌。<br>除了 ibus 本體外，我選擇了 ibus-chewing 和 ibus-athiy 分別用來輸入中文和日文，如果有其他喜歡的也可以選。選好後，不要照一些以前的怪方法啟用它們，而是去”設定” 中的 “地區和語言” 調整，建議灌完重開機一次最保險，反正我從來沒搞懂怎麼好好裝輸入法…。</p>
+<p>接下來記得裝中文字體，要注意的是裝完記得要清除字體 cache 不然會看不到改變（然後你就會覺的怎麼跟原本的一樣醜XDD）。通常都是選 CJK 一整包的字體，日文韓文都會一次包含到，其他字體就照需要安裝就好。</p>
+<h3 id="Plymouth"><a href="#Plymouth" class="headerlink" title="Plymouth"></a>Plymouth</h3><p>如果你想要像 Ubuntu 一樣有漂亮的開機動畫，可以灌 Plymouth 這個套件，可以參考 <a href="https://wiki.archlinux.org/index.php/plymouth" target="_blank" rel="noopener">Arch Wiki</a>。<br>基本上就是灌好，改一改 /etc/mkinitcpio.conf 然後重新 mkinitcpio -p linux。<br>另外，為了讓開機動畫可以順順的接上 GDM ，可以把 gdm 換成 gdm-plymouth ，先刪掉 gdm 再重裝 gdm-plymouth 並且記得 enable。</p>
+<p>接著可以用 plymouth-set-default-theme -l 看有哪些主題可以換，並且用其他參數換成那個主題。主題可以去網路上找，也可以自己改，還滿簡單的。<br>可以用以下指令測試，tty 可以自己改成空的 tty。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plymouthd --tty=tty5 --debug --mode=boot</span><br><span class="line">plymouth --show-splash</span><br><span class="line">sleep 5</span><br><span class="line">plymouth --quit</span><br></pre></td></tr></table></figure>
+<p>通常這些步驟可能會遇到一些問題，基本上就慢慢摸索就好了。</p>
+<h2 id="收尾"><a href="#收尾" class="headerlink" title="收尾"></a>收尾</h2><p>最後就是安裝一些自己會用到的東西，tweak-tool 可以調的設定滿多的可以摸索一下，比如可以把快速鍵 ctrl+shift+t 設定成 sakura terminal 等等。<br>目前用起來整體覺得很滿意，界面很漂亮，可以按照自己的意思調整，加上 gnome-shell 對整體的使用者體驗設計上還算不錯。<br>缺點大概就是目前 gnome-shel l 記憶體吃很兇，幾乎可以確定是 Bug 了但是官方卻遲遲無法解決，只能期待哪天被修復了。</p>
+<p>大概就這樣，希望如果有人跟我一樣不想使用跟 WIndows 差不多也只是下一步下一步安裝沒什麼自由空間的 Ubuntu 的話，可以試試看 Archlinux 喔！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/" data-id="cjf5lss7e00drsfq45xts2co2" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Archlinux/">Archlinux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome-Shell/">Gnome-Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Plymouth/">Plymouth</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Algorithm::Suffix Array 後綴數組</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

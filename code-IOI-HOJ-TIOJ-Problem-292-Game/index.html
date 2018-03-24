@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>IOI::HOJ::TIOJ::Problem : 292 - Game | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="http://hoj.twbbs.org/judge/problem/view/292這題是IOI 2013年的題目，老實說還滿詭異的…..，應該說會AC是因為測資爛吧。">
+<meta name="keywords" content="C++,TIOJ,IOI,HOJ,RMQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOI::HOJ::TIOJ::Problem : 292 - Game|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/code-IOI-HOJ-TIOJ-Problem-292-Game/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="http://hoj.twbbs.org/judge/problem/view/292這題是IOI 2013年的題目，老實說還滿詭異的…..，應該說會AC是因為測資爛吧。">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-23T19:15:08.171Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOI::HOJ::TIOJ::Problem : 292 - Game|Chino&#39;s">
+<meta name="twitter:description" content="http://hoj.twbbs.org/judge/problem/view/292這題是IOI 2013年的題目，老實說還滿詭異的…..，應該說會AC是因為測資爛吧。">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-code-IOI-HOJ-TIOJ-Problem-292-Game" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/code-IOI-HOJ-TIOJ-Problem-292-Game/" class="article-date">
+  <time datetime="2015-03-17T01:18:02.000Z" itemprop="datePublished">2015-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-備忘錄/">Code 備忘錄</a>►<a class="article-category-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IOI::HOJ::TIOJ::Problem : 292 - Game
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://hoj.twbbs.org/judge/problem/view/292" target="_blank" rel="noopener">http://hoj.twbbs.org/judge/problem/view/292</a><br>這題是IOI 2013年的題目，老實說還滿詭異的…..，應該說會AC是因為測資爛吧。</p>
+<a id="more"></a>
+<p>題目是這樣的，你有一個非常大的平面（<strong>10^9</strong>）。你現在需要：<br>1.改某個點的值。<br>2.查詢某個平面區域的全部數字的GCD。（對了任何數跟0 做GCD是自己喔！！）<br>其中改某個值的次數是<strong>22000</strong>，查詢是250000。</p>
+<p>這題的複雜度很詭異，基本上因為測資的更新點數不多，又很散，所以可以透過<strong>線段樹套線段樹</strong>AC掉，不過其實有特殊測資會讓他MLE。另外一種是<strong>線段樹套平衡樹</strong>（也許treap可以吧？！）。</p>
+<p>這題的瓶頸其實是<strong>空間</strong>，時間上O（Nlog^2N）就會過了。第一次傳一次拿了5種狀態QAQ。實作上要利用<strong>動態加點</strong>的技巧。</p>
+<p>大部分的人要是沒寫過樹套樹，都會無法理解，這題我一開始也誤會了。</p>
+<p>首先第一步，建構一個資料結構，他可以插入點，查詢區間的GCD，這是<strong>一維</strong>的。這可以是平衡樹或是線段樹，差不多拉~~。</p>
+<p>然後第二維是一棵線段樹，裡面的值已經不是整數，而是一個上面提到的資料結構。<br>對於查詢，先照一般的線段樹查找，找到包含第二維的那幾塊，然後繼續在那幾塊「大線段樹」裡查找第一維的區間（上面的資料結構），<strong>大線段樹裡每一個節點都是一棵「小線段樹」</strong>。</p>
+<p>在寫線段樹的時候，要維護一個值，常常透過左右子節點來維護（比如求和就是左子節點的和+右子節點的和），而這裡我們要維護的是<strong>「一個資料結構」</strong>，當然不能直接加起來。<br>一個好方法是，我們可以把「大線段樹」的每個節點，當作一個一維容器維護某個座標的GCD，每次加入一個點時，會遞迴下去，之後，直接<strong>query「大線段樹」的左右子節點裡的「小線段樹」</strong>，查出剛剛加入的點的Y座標那排的值，做GCD運算之後，就得到某個Y座標，寬度是這個「大線段樹」節點寬度的<strong>點，問題變回一維</strong>，我們直接將這個點丟進這個節點的容器裡。</p>
+<p>做到這裡，應該得到一個MLE了，這時有一個優化，我們要加在第一維的「小線段樹」上。<br>小線段樹只會做插入點，跟查詢區間，插入點的時候，我們先加一個懶惰標記，代表這個<strong>區間只有一個值</strong>，並紀錄他的位置（某個一維的座標），查詢時也可以直接判斷有沒有包含這個值，直到下一次插入值時，如果位置一樣，直接改掉值繼續用，不然就把標記推下去，然後繼續做。</p>
+<p>至於動態加點，我們的線段樹查詢前可以先讓左右子節點（指標型線段樹）指向NULL，查詢時如果是NULL就直接當作0，插入點<strong>有需要再New</strong>一個節點出來。這也是上面那個優化會節省記憶體的原因，因為這樣可以整整省掉一排記憶體，細節和卡掉的測資可以自己思考~~。</p>
+<p>2015/03/18<br>寫了線段樹套Treap，概念不變，反正第一維就是一個容器，也有人用黑魔法Tree做。<br>時間變成兩倍，但是空間剩下一半XDD。<br>聽說這題有線段樹<a href="https://gist.github.com/johnchen902/efb9a4a5211c35f06397" target="_blank" rel="noopener">正解</a>，可以有效解決空間問題，但是覺得難寫….。</p>
+<h4 id="線段樹套線段樹："><a href="#線段樹套線段樹：" class="headerlink" title="線段樹套線段樹："></a>線段樹套線段樹：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(n) Fi(i,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fi(i,n) for(int i=0;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Seg</span>&#123;</span></span><br><span class="line">    LL val;</span><br><span class="line">    <span class="keyword">int</span> tag;</span><br><span class="line">    Seg *lt,*rt;</span><br><span class="line">    Seg():lt(<span class="literal">NULL</span>),rt(<span class="literal">NULL</span>),val(<span class="number">-1</span>),tag(<span class="number">-1</span>)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x,LL k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;=(l+r)/<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!lt)lt=<span class="keyword">new</span> Seg();</span><br><span class="line">            lt-&gt;insert(l,(l+r)/<span class="number">2</span>,x,k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!rt)rt=<span class="keyword">new</span> Seg();</span><br><span class="line">            rt-&gt;insert((l+r)/<span class="number">2</span>+<span class="number">1</span>,r,x,k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x,LL k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">            val=k;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x==tag)val=k;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(~tag)&#123;</span><br><span class="line">            push(l,r,tag,val);</span><br><span class="line">            tag=<span class="number">-1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!~val)&#123;</span><br><span class="line">            tag=x;val=k;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        push(l,r,x,k);</span><br><span class="line">        val=__gcd((lt?lt-&gt;val:<span class="number">0</span>),(rt?rt-&gt;val:<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">LL <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a&lt;=l&amp;&amp;r&lt;=b)<span class="keyword">return</span> val;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;b||r&lt;a)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(~tag)<span class="keyword">return</span> a&lt;=tag&amp;&amp;tag&lt;=b?val:<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> __gcd((lt?lt-&gt;query(l,mid,a,b):<span class="number">0</span>),(rt?rt-&gt;query(mid+<span class="number">1</span>,r,a,b):<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SegSeg</span>&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> max_n;</span><br><span class="line">    Seg *val;</span><br><span class="line">    SegSeg *lt,*rt;</span><br><span class="line">    SegSeg():lt(<span class="literal">NULL</span>),rt(<span class="literal">NULL</span>),val(<span class="literal">NULL</span>)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x,<span class="keyword">int</span> y,LL k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!val)val=<span class="keyword">new</span> Seg();</span><br><span class="line">            val-&gt;insert(<span class="number">0</span>,max_n<span class="number">-1</span>,y,k);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;=(l+r)/<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!lt)lt=<span class="keyword">new</span> SegSeg();</span><br><span class="line">            lt-&gt;insert(l,(l+r)/<span class="number">2</span>,x,y,k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!rt)rt=<span class="keyword">new</span> SegSeg();</span><br><span class="line">            rt-&gt;insert((l+r)/<span class="number">2</span>+<span class="number">1</span>,r,x,y,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!val)val=<span class="keyword">new</span> Seg();</span><br><span class="line">        val-&gt;insert(<span class="number">0</span>,max_n<span class="number">-1</span>,y,__gcd((lt&amp;&amp;lt-&gt;val?lt-&gt;val-&gt;query(<span class="number">0</span>,max_n<span class="number">-1</span>,y,y):<span class="number">0</span>),(rt&amp;&amp;rt-&gt;val?rt-&gt;val-&gt;query(<span class="number">0</span>,max_n<span class="number">-1</span>,y,y):<span class="number">0</span>)));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">LL <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a&lt;=l&amp;&amp;r&lt;=b)<span class="keyword">return</span> val?val-&gt;query(<span class="number">0</span>,max_n<span class="number">-1</span>,x,y):<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;b||r&lt;a)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> __gcd((lt?lt-&gt;query(l,mid,a,b,x,y):<span class="number">0</span>),(rt?rt-&gt;query(mid+<span class="number">1</span>,r,a,b,x,y):<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> SegSeg::max_n;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// freopen("02.in","r",stdin);</span></span><br><span class="line">    <span class="comment">// freopen("0.out","w",stdout);</span></span><br><span class="line">    <span class="keyword">int</span> r,n,a,b,c,d;</span><br><span class="line">    LL k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;r,&amp;SegSeg::max_n,&amp;n);</span><br><span class="line">    SegSeg *segseg=<span class="keyword">new</span> SegSeg();</span><br><span class="line">    F(n)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%lld"</span>,&amp;a,&amp;b,&amp;k);</span><br><span class="line">            segseg-&gt;insert(<span class="number">0</span>,r<span class="number">-1</span>,a,b,k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">            <span class="keyword">if</span>(a&gt;c)swap(a,c);</span><br><span class="line">            <span class="keyword">if</span>(b&gt;d)swap(b,d);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,segseg-&gt;query(<span class="number">0</span>,r<span class="number">-1</span>,a,c,b,d));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%*d"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Treap版："><a href="#Treap版：" class="headerlink" title="Treap版："></a>Treap版：</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(n) Fi(i,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fi(i,n) for(int i=0;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Treap</span>&#123;</span></span><br><span class="line">    Treap *l,*r;</span><br><span class="line">    <span class="keyword">int</span> key,pri;</span><br><span class="line">    LL val,g;</span><br><span class="line">    Treap()&#123;&#125;</span><br><span class="line">    Treap(<span class="keyword">int</span> _k,LL _v):l(<span class="literal">NULL</span>),r(<span class="literal">NULL</span>),key(_k),val(_v),g(_v),pri(rand())&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">get_g</span><span class="params">(Treap *a)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a?a-&gt;g:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pull</span><span class="params">(Treap *a)</span></span>&#123;</span><br><span class="line">    a-&gt;g=__gcd(a-&gt;val,__gcd(get_g(a-&gt;l),get_g(a-&gt;r)));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Treap* <span class="title">merge</span><span class="params">(Treap *a,Treap *b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!a||!b)<span class="keyword">return</span> a?a:b;</span><br><span class="line">    <span class="keyword">if</span>(a-&gt;pri &gt; b-&gt;pri)&#123;</span><br><span class="line">        a-&gt;r=merge(a-&gt;r,b);</span><br><span class="line">        pull(a);</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        b-&gt;l=merge(a,b-&gt;l);</span><br><span class="line">        pull(b);</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">split</span><span class="params">(Treap *t,<span class="keyword">int</span> k,Treap *&amp;a,Treap *&amp;b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!t)a=b=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(t-&gt;key&lt;=k)&#123;</span><br><span class="line">        a=t;</span><br><span class="line">        split(t-&gt;r,k,a-&gt;r,b);</span><br><span class="line">        pull(a);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        b=t;</span><br><span class="line">        split(t-&gt;l,k,a,b-&gt;l);</span><br><span class="line">        pull(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">update</span><span class="params">(Treap *a,<span class="keyword">int</span> k,LL x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!a)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(a-&gt;key==k)a-&gt;val=x,x=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a-&gt;key &gt; k)x=update(a-&gt;l,k,x);</span><br><span class="line">    <span class="keyword">else</span> x=update(a-&gt;r,k,x);</span><br><span class="line">    pull(a);</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">LL <span class="title">Tquery</span><span class="params">(Treap *&amp;a,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!a)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(a-&gt;key==k)<span class="keyword">return</span> a-&gt;val;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a-&gt;key &gt; k)<span class="keyword">return</span> Tquery(a-&gt;l,k);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> Tquery(a-&gt;r,k);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">queryLR</span><span class="params">(Treap *&amp;a,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!a)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    Treap *lt,*rt;</span><br><span class="line">    split(a,l<span class="number">-1</span>,lt,a);</span><br><span class="line">    split(a,r,a,rt);</span><br><span class="line">    LL ans=a?a-&gt;g:<span class="number">0</span>;</span><br><span class="line">    a=merge(lt,merge(a,rt));</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Tinsert</span><span class="params">(Treap *&amp;a,<span class="keyword">int</span> k,LL x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(update(a,k,x))<span class="keyword">return</span>;</span><br><span class="line">    Treap *tmp,*tt;</span><br><span class="line">    split(a,k,a,tmp);</span><br><span class="line">    a=merge(a,merge(<span class="keyword">new</span> Treap(k,x),tmp));</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SegSeg</span>&#123;</span></span><br><span class="line">    Treap *val;</span><br><span class="line">    SegSeg *lt,*rt;</span><br><span class="line">    SegSeg():lt(<span class="literal">NULL</span>),rt(<span class="literal">NULL</span>),val(<span class="literal">NULL</span>)&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> x,<span class="keyword">int</span> y,LL k)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!val)val=<span class="keyword">new</span> Treap(y,k);</span><br><span class="line">            <span class="keyword">else</span> Tinsert(val,y,k);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;=(l+r)/<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!lt)lt=<span class="keyword">new</span> SegSeg();</span><br><span class="line">            lt-&gt;insert(l,(l+r)/<span class="number">2</span>,x,y,k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!rt)rt=<span class="keyword">new</span> SegSeg();</span><br><span class="line">            rt-&gt;insert((l+r)/<span class="number">2</span>+<span class="number">1</span>,r,x,y,k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// printf(" I %d %d (%d %d) %lld %lld\n",l,r,x,y,Tquery(val,y),__gcd((lt?Tquery(lt-&gt;val,y):0),(rt?Tquery(rt-&gt;val,y):0)));</span></span><br><span class="line">        <span class="keyword">if</span>(!val)val=<span class="keyword">new</span> Treap(y,__gcd((lt?Tquery(lt-&gt;val,y):<span class="number">0</span>),(rt?Tquery(rt-&gt;val,y):<span class="number">0</span>)));</span><br><span class="line">        <span class="keyword">else</span> Tinsert(val,y,__gcd((lt?Tquery(lt-&gt;val,y):<span class="number">0</span>),(rt?Tquery(rt-&gt;val,y):<span class="number">0</span>)));</span><br><span class="line">        <span class="comment">// printf(" H %d %d (%d %d) %lld %lld\n",l,r,x,y,Tquery(val,y),__gcd((lt?Tquery(lt-&gt;val,y):0),(rt?Tquery(rt-&gt;val,y):0)));</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">LL <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a&lt;=l&amp;&amp;r&lt;=b)<span class="keyword">return</span> queryLR(val,x,y);</span><br><span class="line">        <span class="keyword">if</span>(l&gt;b||r&lt;a)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> __gcd((lt?lt-&gt;query(l,mid,a,b,x,y):<span class="number">0</span>),(rt?rt-&gt;query(mid+<span class="number">1</span>,r,a,b,x,y):<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// freopen("01.set-zero.in","r",stdin);</span></span><br><span class="line">    <span class="comment">// freopen("0.out","w",stdout);</span></span><br><span class="line">    srand(<span class="number">7122</span>);</span><br><span class="line">    <span class="keyword">int</span> r,n,a,b,c,d;</span><br><span class="line">    LL k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;r,&amp;c,&amp;n);</span><br><span class="line">    SegSeg *segseg=<span class="keyword">new</span> SegSeg();</span><br><span class="line">    F(n)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%lld"</span>,&amp;a,&amp;b,&amp;k);</span><br><span class="line">            segseg-&gt;insert(<span class="number">0</span>,r<span class="number">-1</span>,a,b,k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">            <span class="keyword">if</span>(a&gt;c)swap(a,c);</span><br><span class="line">            <span class="keyword">if</span>(b&gt;d)swap(b,d);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>,segseg-&gt;query(<span class="number">0</span>,r<span class="number">-1</span>,a,c,b,d));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%*d"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/code-IOI-HOJ-TIOJ-Problem-292-Game/" data-id="cjf5lss3v003qsfq4as6tdjc4" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/code-IOI-HOJ-TIOJ-Problem-292-Game/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HOJ/">HOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOI/">IOI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RMQ/">RMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TIOJ/">TIOJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/code-IOI-HOJ-288-TIOJ-1838-作夢中-Dreaming/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          IOI::HOJ-288::TIOJ-1838::作夢中 Dreaming
+        
+      </div>
+    </a>
+  
+  
+    <a href="/code-Algorithm-模擬退火/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Algorithm::模擬退火</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/code-IOI-HOJ-TIOJ-Problem-292-Game/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

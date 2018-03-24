@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TIOJ::IOI::1889 . 【IOI2015】Towns 一堆糖 | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="http://tioj.ck.tp.edu.tw/problems/1889這題是IOI 2015 Day2的題目，還是台灣教授出的題目。結果反而這題在賽中台灣隊死的很慘QQ。題目是怪怪圖論互動題。">
+<meta name="keywords" content="C++,TIOJ,IOI,Tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TIOJ::IOI::1889 . 【IOI2015】Towns 一堆糖|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="http://tioj.ck.tp.edu.tw/problems/1889這題是IOI 2015 Day2的題目，還是台灣教授出的題目。結果反而這題在賽中台灣隊死的很慘QQ。題目是怪怪圖論互動題。">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-23T19:15:08.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TIOJ::IOI::1889 . 【IOI2015】Towns 一堆糖|Chino&#39;s">
+<meta name="twitter:description" content="http://tioj.ck.tp.edu.tw/problems/1889這題是IOI 2015 Day2的題目，還是台灣教授出的題目。結果反而這題在賽中台灣隊死的很慘QQ。題目是怪怪圖論互動題。">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖/" class="article-date">
+  <time datetime="2016-03-25T12:27:16.000Z" itemprop="datePublished">2016-03-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-備忘錄/">Code 備忘錄</a>►<a class="article-category-link" href="/categories/Code-備忘錄/Graph/">Graph</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TIOJ::IOI::1889 . 【IOI2015】Towns 一堆糖
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://tioj.ck.tp.edu.tw/problems/1889" target="_blank" rel="noopener">http://tioj.ck.tp.edu.tw/problems/1889</a><br>這題是IOI 2015 Day2的題目，還是台灣教授出的題目。<br>結果反而這題在賽中台灣隊死的很慘QQ。<br>題目是怪怪圖論互動題。</p>
+<a id="more"></a>
+<p>題目給你一棵樹，但是卻沒告訴你樹長怎樣，取而代之的，他告訴你樹有幾個葉子。<br>現在他讓你詢問樹上任意兩個葉子的距離，他要你求出兩個東西。<br>第1個就是，找出樹上一個點，他距離最遠的葉子的距離最近，請找出這個距離，我們稱他為樹半徑。另外，這個點在這題稱為樞紐，我們就先稱他為CBD吧。<br>第2個要問的是，對於這個CBD，如果以他為根節點，他的每個子樹的葉子數量不超過全部葉子的一半（小於等於n/2），我們就稱他為平衡的，輸出R，否則輸出負R（R就是第1個問題的半徑長度）。</p>
+<p>這題一開始我完全沒有想法，沒什麼接觸過這種題目，題目又太跳脫了。<br>題目會限制我們查詢的次數，正解的次數是7n/2。<br>分開慢慢想，對於第一個問題，很顯然要先找出樹直徑，找出樹直徑的方法就是先對每一個點都查到點0的距離，選最長的點s，再對s做一次找最遠的點t，s到t就是直徑，這時我們已經可以求出每個點連到0-s這條鍊上的位置了，怎麼做呢？</p>
+<p>假設點i在距離點s Si的地方接上了0-s鍊，這個接點到點i的距離是Di，到點0的距離是tmp（後面用不到），我們可以列出三個方程式，設兩點距離是L（i,j）。<br>$ Si + tmp = L(0,s) $<br>$ tmp + Di = L(0,i) $<br>$ Si + Di = L(i,s) $<br>其中我們發現，這3個方程式的L（）距離我們早就查詢過了，如果我們先開一個二維陣列快取查詢過的答案，那這幾個查詢不會浪費查詢次數。</p>
+<img src="/code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖/001.png">
+<p>把每個點的這3個方程式算出來，我們可以得到，每個點i到0-s鍊的距離Di，和這個接點到s的距離Si，而我們知道CBD會在s-t鍊上，而且也會在0-s上（因為0接到s-t上的時候，會走向比較遠的那一端，也就是s，所以CBD一定在靠s這邊）。所以每個點的Si就和（直徑s-t鍊長度 - Si）取max就是這個點距離最遠的點的距離，然後這個值最小的點就是CBD。</p>
+<p>這樣我們就做完第一個問題了，在做第二個之前，我們要先知道，我們可能會找出兩個CBD，因為只要直徑中間一條邊的兩端出去深度都一樣就會這樣。<br>所以做第二個問題前，我們要先判段要選哪一個當CBD。我們可以透過Si小於等於比較靠近S的那個CBD的Si，來知道如果不選這個點當CBD，至少我們會得到一個多少點的子樹，如果找到發現大於n/2，那就一定要選這個點當CBD，因為另外一個不可能平衡了，不然就試試看另外那個，因為這個不可能了（有多於n/2的點再他那邊，選自己不可能平衡），或是兩邊都是n/2，那一定平衡，不過這個不判也不會怎樣。</p>
+<p>所以我們現在已經選定了，之後我們就可以開始驗證CBD是否平衡。<br>我們需要轉化一下問題，我們先想想怎麼查詢兩個點在不在以CBD為根的樹的同一個子樹上，首先我們可以確定如果他們的Si和CBD的Si不一樣，那如果都在CBD的同一邊（都小於CBD的Si或是都大於CBD的Si），那就是同一棵，不然就不是同一棵;如果他們的Si都和CBD的Si一樣，那就看看他們之間的距離，和他們到0-s鍊的距離和是否相同，如果相同代表在不同棵子樹，不然他們一定是先會合在一起連到0-s鍊。也就是說如果符合：<br>$ Di + Dj \neq L(i,j) $<br>他們就會在不同子樹上。</p>
+<p>有了這個判斷的方式後，我們想要透過判斷兩兩是否在同一棵子樹的方式來確定是否有一棵子樹葉子多於n/2。<br>問題可以變成，讓你查詢一堆數字是否相等，你要告訴我這些數字中是否存在絕對眾數（數量大於n/2的數）。<br>這個有很多作法，有論文用了兩個Stack法，我完全沒有感覺，只是覺得他很對。<br>不過我有一個更好玩的作法，打架法。</p>
+<p>首先先把數字分成N組，每組都是一個人，然後奇數的組別和偶數的組別對打，如果最後還剩下一組奇數的組別，直接晉級。對打時，一隊派一人，兩人會一起死掉然後去墓地，兩隊不停的打，直到有一隊或是兩隊都沒人了，如果有剩下人就晉級。如果兩隊在查詢後發現是一樣的（用上面說的查詢去查），那就直接合併這兩組，人數相加，然後直接晉級。第二輪再重複上面的過程，直到剩下1組或是0組，如果是0組，代表絕對多數不存在（因為互相對打都死光了），剩下1組的話，絕對多數可能存在，但是不確定，必須拿這個數字去墓地裡驗證，看有哪些屍體和他是同一個數字，可是在遇到之前就被別人殺掉了，這樣其實也就是直接統計這個數字在集合裡的總數，如果大於n/2就是有絕對眾數，也就是原本的題目中的CBD不平衡，要輸出負數。</p>
+<p>依照題目規定，因為我們一開始找第一個答案會用掉約2<em>n次，所以我們第二個答案只有3</em>n/2次可以用，打架第一輪如果直接死光了話，我們只會花n/2次，如果都成功合併晉級了，那我們之後墓地裡的屍體數量就會少一半（雖然我剛剛說一個一個打，但是很顯然我們對於已經知道是同組的屍體不需要分開比較，可以一起比），所以基本上次數可以控制在3*n/2裡，很神奇吧！</p>
+<p>這樣就做完了，我再重新敘述一次打架的流程好了。</p>
+<p>首先，有K組數字，每組有Pi個人，如我人數一樣，直接兩組丟進墓地，如果不一樣，小的那組直接進墓地，大的那組要把跟小的那組一樣的人數送進墓地，然後剩下的晉級，如果兩組人比較後發現是同一組的，那就合併晉級。<br>最後剩下0組就直接結束，剩下1組就拿這組去跟墓地裡的每組檢查，一樣就計算人數，看看有沒有超過一半，以上。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"lib1889.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(n) Fi(i,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fi(i,n) Fl(i,0,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fl(i,l,n) for(int i=l;i&lt;n;i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">111</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; H;</span><br><span class="line"><span class="keyword">int</span> D[N], S[N];</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getL</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> cache[N][N];</span><br><span class="line">    <span class="keyword">if</span>(a == b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="number">-1</span>)<span class="built_in">memset</span>(cache,<span class="number">0</span>,<span class="keyword">sizeof</span>(cache));</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;b)swap(a,b);</span><br><span class="line">    <span class="keyword">int</span> &amp;tmp = cache[a][b];</span><br><span class="line">    <span class="keyword">if</span>(tmp)<span class="keyword">return</span> tmp;</span><br><span class="line">    <span class="keyword">return</span> tmp = getDistance(a,b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getFP</span><span class="params">(<span class="keyword">int</span> now, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mx = <span class="number">0</span>, res;</span><br><span class="line">    F(n)<span class="keyword">if</span>(i!=now)&#123;</span><br><span class="line">        <span class="keyword">if</span>(mx &lt; getL(now,i))&#123;</span><br><span class="line">            mx = getL(now,i);</span><br><span class="line">            res = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get3ANS</span><span class="params">(<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y,<span class="keyword">int</span> &amp;z,<span class="keyword">int</span> fi,<span class="keyword">int</span> se,<span class="keyword">int</span> th)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = (fi+se+th)/<span class="number">2</span>;</span><br><span class="line">    x = sum - se;</span><br><span class="line">    y = sum - th;</span><br><span class="line">    z = sum - fi;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">equal</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> CBD)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S[a]==CBD&amp;&amp;S[b]==CBD)&#123;</span><br><span class="line">        <span class="keyword">return</span> D[a]+D[b] &gt; getL(a,b);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(S[a]==CBD||S[b]==CBD)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> S[a]&lt;CBD!=S[b]&gt;CBD;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">fight</span><span class="params">(<span class="keyword">int</span> CBD, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;PII&gt;JIZZ,F1,F2;</span><br><span class="line">    F(n)F1.push_back(PII(i,<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">while</span>(F1.size()&gt;<span class="number">1</span>)&#123;</span><br><span class="line">        F(F1.size()/<span class="number">2</span>)&#123;</span><br><span class="line">            PII a = F1[i*<span class="number">2</span>], b = F1[i*<span class="number">2</span>+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(equal(a.first,b.first,CBD))&#123;</span><br><span class="line">                F2.push_back(PII(a.first,a.second+b.second));</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a.second == b.second)&#123;</span><br><span class="line">                JIZZ.push_back(a);</span><br><span class="line">                JIZZ.push_back(b);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(a.second&gt;b.second)swap(a,b);</span><br><span class="line">                JIZZ.push_back(a);</span><br><span class="line">                JIZZ.push_back(PII(b.first,a.second));</span><br><span class="line">                F2.push_back(PII(b.first,b.second-a.second));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(F1.size()&amp;<span class="number">1</span>)F2.push_back(F1.back());</span><br><span class="line">        F1.swap(F2);</span><br><span class="line">        F2.clear();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(F1.empty())<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> cnt = F1[<span class="number">0</span>].second;</span><br><span class="line">    <span class="keyword">for</span>(PII p:JIZZ)&#123;</span><br><span class="line">        <span class="keyword">if</span>(equal(F1[<span class="number">0</span>].first,p.first,CBD))cnt += p.second;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt*<span class="number">2</span> &gt; n;</span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> n = Init(),s,t,L;</span><br><span class="line">        H.clear();</span><br><span class="line">        getL(<span class="number">-1</span>,<span class="number">-1</span>);<span class="comment">//init cache[N][N];</span></span><br><span class="line">        s = getFP(<span class="number">0</span>,n);</span><br><span class="line">        t = getFP(s,n);</span><br><span class="line">        L = getL(s,t);</span><br><span class="line">        F(n)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp;</span><br><span class="line">            get3ANS(S[i],tmp,D[i],getL(<span class="number">0</span>,s),getL(<span class="number">0</span>,i),getL(i,s));</span><br><span class="line">            H[S[i]] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">auto</span> p = H.upper_bound(L/<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">int</span> CBD1 = p-&gt;first;</span><br><span class="line">        <span class="keyword">int</span> CBD2 = prev(p)-&gt;first;</span><br><span class="line">        <span class="keyword">int</span> CBD;</span><br><span class="line">        <span class="keyword">if</span>(max(L-CBD1,CBD1) == max(L-CBD2,CBD2))&#123;</span><br><span class="line">            <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> p:H)&#123;</span><br><span class="line">                <span class="keyword">if</span>(p.first &lt;= CBD2)cnt+=p.second;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            CBD = cnt*<span class="number">2</span>&lt;n?CBD1:CBD2;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            CBD = max(L-CBD1,CBD1) &lt; max(L-CBD2,CBD2)?CBD1:CBD2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> R = max(L-CBD,CBD);</span><br><span class="line">        answer(fight(CBD,n)?-R:R);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖/" data-id="cjf5lss2w0015sfq4nimgvtur" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOI/">IOI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TIOJ/">TIOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">Tree</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/code-2016-0326TIOJ-IOI-1888-【IOI2015】Sorting-說停－中國洗衣問題/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TIOJ::IOI::1888 . 【IOI2015】Sorting 說停－中國洗衣問題
+        
+      </div>
+    </a>
+  
+  
+    <a href="/code-2016-0323TIOJ-1890-【Gate】這個笑容由我來守護/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TIOJ::1890 . 【Gate】這個笑容由我來守護</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/code-2016-0325TIOJ-IOI-1889-【IOI2015】Towns-一堆糖/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>

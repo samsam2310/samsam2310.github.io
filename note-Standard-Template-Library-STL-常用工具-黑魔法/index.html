@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Standard Template Library(STL)&amp;&amp;常用工具&amp;&amp;黑魔法 | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="STL 標準模板庫，是一些很好用的常見的資料結構的模板，如果要打競賽或是寫程式的時候懶得自己寫就可以用這個很方便的工具庫。 2015/02/14加了一點黑魔法。">
+<meta name="keywords" content="C++,STL,GNU-PBDS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Standard Template Library(STL)&amp;&amp;常用工具&amp;&amp;黑魔法|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/note-Standard-Template-Library-STL-常用工具-黑魔法/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="STL 標準模板庫，是一些很好用的常見的資料結構的模板，如果要打競賽或是寫程式的時候懶得自己寫就可以用這個很方便的工具庫。 2015/02/14加了一點黑魔法。">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-23T19:15:08.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Standard Template Library(STL)&amp;&amp;常用工具&amp;&amp;黑魔法|Chino&#39;s">
+<meta name="twitter:description" content="STL 標準模板庫，是一些很好用的常見的資料結構的模板，如果要打競賽或是寫程式的時候懶得自己寫就可以用這個很方便的工具庫。 2015/02/14加了一點黑魔法。">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-note-Standard-Template-Library-STL-常用工具-黑魔法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/note-Standard-Template-Library-STL-常用工具-黑魔法/" class="article-date">
+  <time datetime="2014-03-27T22:01:21.000Z" itemprop="datePublished">2014-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Note/">Note</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Standard Template Library(STL)&amp;&amp;常用工具&amp;&amp;黑魔法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>STL 標準模板庫，是一些很好用的常見的資料結構的模板，如果要打競賽或是寫程式的時候懶得自己寫就可以用這個很方便的工具庫。</p>
+<h4 id="2015-02-14"><a href="#2015-02-14" class="headerlink" title="2015/02/14"></a>2015/02/14</h4><p>加了一點黑魔法。</p>
+<a id="more"></a>
+<p>STL是物件，容器、資料結構等等基本上都有差不多的函式可以用，比如 push()  pop()  push_back()   pop_back()  top()  back()  front()  insert() erase() 等等，每個容器、物件的同一個函式功能也都類似，但是複雜度、實作方式可是完全不一樣。想要善用STL一定要好好了解它的內容。(我都不懂一直亂用，程式常常爛掉)。</p>
+<h2 id="STL總覽："><a href="#STL總覽：" class="headerlink" title="STL總覽："></a>STL總覽：</h2><ul>
+<li><code>vector&lt;type&gt;</code> ：動態陣列，容量不足時會自動增加，其他資料結構很多都用這個容器當存放的容器，基本上宣告完可以直接當陣列用。注意容量不夠時，會O(n)搬移所有元素。POP後記憶體不會釋放。iterator有可能溢位，只要vector改變不保證指到一樣的值。 常用函式—push_back()/pop_back()  O(1) ， push_front()/pop_front() O(n)。</li>
+<li><code>list&lt;type&gt;</code></li>
+<li><code>stack&lt;type&gt;</code>   push(),pop(),top(),empty() O(1)，不能修改裡面的值。</li>
+<li><code>queue&lt;type&gt;</code>   push(),pop(),front(),empty() O(1)</li>
+<li><code>priority_queue&lt;type&gt;</code></li>
+<li><code>deque&lt;type&gt;</code>  複雜度較高，但是 random access O(1)</li>
+<li><code>set&lt;type&gt;</code></li>
+<li><code>map&lt;type,type&gt;</code></li>
+<li><code>unordered_map&lt;type,type&gt;</code></li>
+</ul>
+<h2 id="常用函式："><a href="#常用函式：" class="headerlink" title="常用函式："></a>常用函式：</h2><p>一些常用的內建函式。</p>
+<h5 id="lt-iostream-gt"><a href="#lt-iostream-gt" class="headerlink" title="&lt;iostream&gt;"></a><code>&lt;iostream&gt;</code></h5><ul>
+<li>std::fill(<em>p,</em>p+N,value);  ： 指定一段區域付值，速度其實跟for迴圈差不多….。</li>
+</ul>
+<h5 id="lt-cstring-gt"><a href="#lt-cstring-gt" class="headerlink" title="&lt;cstring&gt;"></a><code>&lt;cstring&gt;</code></h5><ul>
+<li>memset(*p, value, size);  ：這其實原本用來區間付值，用來改字元的。因為一個字元 1byte，如果拿來付值int 1會變成 (1&lt;&lt;24)+(1&lt;&lt;16)+(1&lt;&lt;8)+1 = 16843009，(一個byte一個1)，平常拿來把陣列改成0就好，速度比較快，可以搭配sizeof(int)取得型別的記憶體大小。通常一個陣列D[]就用  memset(D,0,sizeof(D))  就可以初史化囉!!</li>
+</ul>
+<h5 id="lt-Algorithm-gt"><a href="#lt-Algorithm-gt" class="headerlink" title="&lt;Algorithm&gt;"></a><code>&lt;Algorithm&gt;</code></h5><ul>
+<li>std::sort(<em>p,</em>p+N,function_name) ： 很方便的內建排序，綜合了多種排序法，會依情況更換演算法，效率不錯。不穩定，基本上是快速排序，由小排到大。平常可以直接用兩個指標將區間排序，如果不想用他的排序法，可以塞一個自訂函式給他(回傳bool就好)，他會照你的方法排，而且這樣甚麼都能丟(struct也是)。</li>
+<li>std::__gcd(x,y)   ：回傳最大公因數，應該是用輾轉相除法。</li>
+<li>min(x,y) max(x,y) 。 傳回小的、大的。通常我都自己define。</li>
+</ul>
+<h5 id="lt-cstdlib-gt"><a href="#lt-cstdlib-gt" class="headerlink" title="&lt;cstdlib&gt;"></a><code>&lt;cstdlib&gt;</code></h5><ul>
+<li>system(char*)  ：很常見的函式，用來呼叫系統命令，他吃字串，在windows用就當塞字給cmd。  </li>
+</ul>
+<h5 id="lt-cmath-gt"><a href="#lt-cmath-gt" class="headerlink" title="&lt;cmath&gt;"></a><code>&lt;cmath&gt;</code></h5><ul>
+<li>sqrt(double)    開根號。</li>
+<li>三角函數、反三角函數。(弧度，非360角度) acos(-1) = pi(圓周率)</li>
+</ul>
+<h2 id="define："><a href="#define：" class="headerlink" title="#define："></a>#define：</h2><ul>
+<li>define N 1000：這樣要改範圍比較好改。</li>
+<li>define min(x,y) (x)&lt;(y) (x):(y)   ：define可以取代字元外，如果括號內有符合格式的變數也可以取代，有點像函式，依此類推，也可以define MAX。</li>
+<li>define F(n) Fi(i,n)</li>
+<li>define Fi(i,n) Fl(i,0,n)</li>
+<li>define Fl(i,l,n)  for(int i=l;i&lt;n;i++)   ：這是學一個學長的，很好用的for回圈取代法，可以節省很多打for迴圈的時間，但是不熟悉會容易出問題，要小心用。</li>
+</ul>
+<h2 id="C-黑魔法："><a href="#C-黑魔法：" class="headerlink" title="C++ 黑魔法："></a>C++ 黑魔法：</h2><p>GNU-PBDS: Policy-Based Data Structures. GNU GCC的函式庫之一。有一些很神奇的資料結構。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*C++11 支援，要引入以下標頭檔才能用*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ext/pb_ds/assoc_container.hpp&gt;</span></span></span><br><span class="line"><span class="comment">//__gnu_pbds::cc_hash_table</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ext/pb_ds/priority_queue.hpp&gt;</span></span></span><br><span class="line"><span class="comment">//__gnu_pbds::priority_queue</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> __gnu_pbds;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cc_hash_table&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; Hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>__gnu_pbds::cc_hash_table：Hash，比用map做離散化快，key只能丟原本的資料形態，因為unorderde_map有些問題的關係，這東西在離散化時很好用~~。</p>
+</li>
+<li><p>__gnu_pbds::gp_hash_table：跟cc_hash_table很像，但是試了幾次都比他快，記憶體也比較少。但是離散化最省記憶體的方式還是排序二分搜(low_bound)最小。</p>
+</li>
+<li><p>__gnu_pbds::priority_queue；有多種不同的實作方式可以選擇，效率各有優劣。</p>
+</li>
+</ul>
+<p><a href="http://gaotianyu1350.gitcafe.io/2015/02/17/pbds/" target="_blank" rel="noopener">這篇</a>裡面講的非常清楚，有空來整理一下。可是他有錯誤，尤其裡面提到的binary_heap_tag打死都不要用，慢死……。</p>
+<p>C++11 新增好用語法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*C++11 編譯參數 g++ a.cpp -o a -O2 -std=C++11*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> x=<span class="number">5</span>;</span><br><span class="line">    <span class="comment">/*自動形別，需要賦值否則無法運作，</span></span><br><span class="line"><span class="comment">      可以少打字很方便。*/</span></span><br><span class="line">    <span class="keyword">auto</span> fun = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x+<span class="number">5</span>;&#125;;</span><br><span class="line">    <span class="comment">/*定義匿名函數，也就是lambda，</span></span><br><span class="line"><span class="comment">      中括號中是定義把外面的全域變數傳入的方法(參考或複製)，</span></span><br><span class="line"><span class="comment">      細節不在這邊說明。</span></span><br><span class="line"><span class="comment">      因為每個函數對於C++而言都是不同的型態，所以變數形態用auto，</span></span><br><span class="line"><span class="comment">      但是重點是 []()&#123;&#125;;</span></span><br><span class="line"><span class="comment">      遞回等等操作比較複雜，建議只有取值、比大小或是define功能的函式</span></span><br><span class="line"><span class="comment">      再使用這種語法~_~。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">int</span> D[<span class="number">10</span>]=&#123;...&#125;</span><br><span class="line">    sort(D, D+<span class="number">10</span>, [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)&#123;<span class="keyword">return</span> a&gt;b&#125; );</span><br><span class="line">    <span class="comment">/*可以這樣傳函數進入sort函式，改變排序方式*/</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i:D)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*很像其他語言的 for i in ...</span></span><br><span class="line"><span class="comment">      變數會遍歷整個陣列，</span></span><br><span class="line"><span class="comment">      後面也可以是vector等等可以遍歷的結構。</span></span><br><span class="line"><span class="comment">      可以省掉iterator~~</span></span><br><span class="line"><span class="comment">      for(int i : vector&lt;int&gt;)&#123;...&#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>關於auto 還有 decltype() 可以參考<a href="https://kheresy.wordpress.com/2010/05/19/c0x-auto-%E5%92%8C-decltype/" target="_blank" rel="noopener">這裡</a>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/note-Standard-Template-Library-STL-常用工具-黑魔法/" data-id="cjf5lss7m00egsfq4reejuy15" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/note-Standard-Template-Library-STL-常用工具-黑魔法/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GNU-PBDS/">GNU-PBDS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/note-如何在blogger上使用-Syntax-HighLight/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何在blogger上使用 Syntax HighLight
+        
+      </div>
+    </a>
+  
+  
+    <a href="/code-HOJ-Problem-22-駭客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HOJ::Problem : 22 - 駭客</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/note-Standard-Template-Library-STL-常用工具-黑魔法/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

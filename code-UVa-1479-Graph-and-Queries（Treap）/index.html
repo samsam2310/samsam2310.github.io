@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa::1479 - Graph and Queries（Treap） | Chino&#39;s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="http://uva.onlinejudge.org/external/14/1479.htmlTreap經典題。第K大的值，修改值，合併Treap。">
+<meta name="keywords" content="C++,UVa,Treep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa::1479 - Graph and Queries（Treap）|Chino&#39;s">
+<meta property="og:url" content="http://chino.taipei/code-UVa-1479-Graph-and-Queries（Treap）/index.html">
+<meta property="og:site_name" content="Chino&#39;s">
+<meta property="og:description" content="http://uva.onlinejudge.org/external/14/1479.htmlTreap經典題。第K大的值，修改值，合併Treap。">
+<meta property="og:locale" content="Chinese, English">
+<meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+<meta property="og:updated_time" content="2018-03-23T19:15:08.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa::1479 - Graph and Queries（Treap）|Chino&#39;s">
+<meta name="twitter:description" content="http://uva.onlinejudge.org/external/14/1479.htmlTreap經典題。第K大的值，修改值，合併Treap。">
+<meta name="twitter:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chino&#39;s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-72943167-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">
+          <img src="/css/images/LOGO-100x100.png" width="100px">
+        </a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">編寫程式不是種能力，而是一種生活方式。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/category">Category</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/link">Link</a>
+        
+        
+          <a class="main-nav-link" href="//github.com/samsam2310" target="_blank">Github</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" target="_blank"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chino.taipei"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-code-UVa-1479-Graph-and-Queries（Treap）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/code-UVa-1479-Graph-and-Queries（Treap）/" class="article-date">
+  <time datetime="2015-02-11T01:01:36.000Z" itemprop="datePublished">2015-02-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code-備忘錄/">Code 備忘錄</a>►<a class="article-category-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa::1479 - Graph and Queries（Treap）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://uva.onlinejudge.org/external/14/1479.html" target="_blank" rel="noopener">http://uva.onlinejudge.org/external/14/1479.html</a><br>Treap經典題。第K大的值，修改值，合併Treap。</p>
+<a id="more"></a>
+<p>這題題目是給你一張無向圖，有三種操作，查詢跟點 i 連接的所有點中，第K大的值、修改某個點的值，刪掉某條邊。最後輸出所有查詢的平均值。</p>
+<p>這題要<strong>離線逆向</strong>回去做，先把操作吃進來，修改值先改陣列然後紀錄原本是甚麼（等等才可以改回去），刪掉邊就先把這個邊標記掉，查尋直接記起來。</p>
+<p>這樣問題就變成，有一些連通塊會合併，這樣就可以用<strong>Treap</strong>做了。</p>
+<p>Treap，樹堆，Tree 跟 heap的合體。網路上查到的大部分的大陸人都是用旋轉的方式來進行操作，但是其實有更簡單的方法。<br>定義兩個操作，<strong>合併跟分割（不用旋轉）</strong>，合併只能合併兩個Key值可以分成兩堆的treap（左邊都比較小，右邊都比較大，才可以合併，這是定義也是性質），分割是把Key小於K的跟大於K的割開來。的分割和合併是對稱的，一個Treap可以分割再合併，他會變回原來的Treap。<br>透過這兩個操作可以做到幾乎所有的Treap操作，插入點就是先把K-1割下來，把他跟新點合併，然後再合回去，刪除就是把小於K跟大於K的割開，把中間刪掉再合回去，複雜度都是O（logn），重點是很好寫~~，要持久化也比較簡單。只比用旋轉慢一點點。</p>
+<p>因為剛剛已經把操作都逆向處理好了，建立N個Treap，把沒被標記掉的邊拿出來，用desjoin set查詢兩個點是不是再一個連通塊裡，是的話就不用合併了（會悲劇喔），不是的話，就合併（一開始合併完沒更新desjoin set，RE好久…），然後依序操作，刪邊變成加邊，可以直接合併（<strong>不是上面說的合併</strong>，見下面說明）Treap，修改點就是刪掉點在加點（注意這裡我WA好久QQ，因為會有一樣的點，所以把小於K的切下來，大於K的切下來之後，可能會剩很多<strong>大小一樣的點，只能刪一個！！！！</strong>，比較好寫的作法是依序把 小於K的,等於K的左子樹，等於K的右子樹,大於K合併，至於為甚麼應該很明顯。你刪掉了 等於K的那棵Treap的root了~~）。<br>查詢就是只要知道有K-1個數字比他大的數字是誰，就可以知道第K大是誰了，遞迴查詢時，要注意一些值的代表意義。</p>
+<p>合併兩棵Treap要用<strong>啟發式合併</strong>，也就是把小的合併進大的裡，這樣每次只要遍歷小的就好（這裡的合併跟Treap的合併不一樣，因為無法保證兩堆的Key值可以二分，所以必須遍歷其中一棵，一個一個點插入另外一棵），根據證明，這樣可以均攤一個點只會被合併 logN 次。</p>
+<p>本來以為會有浮點數誤差，不過好像沒有~~。<br><strong>指標初始值</strong>要記得給（NULL、0），不然可能會戳到奇怪的記憶體位置。<br>然後這體我不知道詢問有多少筆，先開個10^6 ~~。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* C++11 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> F(n) Fi(i,n)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Fi(i,n) for(int i=0;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 20010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 60010</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> K 1000005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Treap</span>&#123;</span></span><br><span class="line">    Treap *l,*r;</span><br><span class="line">    <span class="keyword">int</span> key,pri,size;</span><br><span class="line">    Treap()&#123;&#125;</span><br><span class="line">    Treap(<span class="keyword">int</span> _val):l(<span class="literal">NULL</span>),r(<span class="literal">NULL</span>),key(_val),pri(rand()),size(<span class="number">1</span>)&#123;&#125;</span><br><span class="line">&#125;*TT[N]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MP</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    MP()&#123;&#125;</span><br><span class="line">    MP(<span class="keyword">char</span> _c,<span class="keyword">int</span> _a,<span class="keyword">int</span> _b):c(_c),a(_a),b(_b)&#123;&#125;</span><br><span class="line">&#125;*ST[K]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">EE</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    EE()&#123;&#125;</span><br><span class="line">    EE(<span class="keyword">int</span> _a,<span class="keyword">int</span> _b):a(_a),b(_b)&#123;&#125;</span><br><span class="line">&#125;*E[M]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> F[N],st,tt,D[N];</span><br><span class="line"><span class="keyword">bool</span> wed[N],EL[M];</span><br><span class="line"><span class="keyword">auto</span> size = [](Treap *a)&#123;<span class="keyword">return</span> a?a-&gt;size:<span class="number">0</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> pull = [](Treap *a)&#123;a-&gt;size = size(a-&gt;l)+size(a-&gt;r)+<span class="number">1</span>;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">go</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> now)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> E[i]-&gt;a+E[i]-&gt;b-now;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bos</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> F[i]==i?i:F[i]=bos(F[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">split</span><span class="params">(Treap *t,<span class="keyword">int</span> k,Treap *&amp;a,Treap *&amp;b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!t)a=b=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(t-&gt;key &lt;= k)&#123;</span><br><span class="line">        a=t;</span><br><span class="line">        split(t-&gt;r,k,a-&gt;r,b);</span><br><span class="line">        pull(a);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        b=t;</span><br><span class="line">        split(t-&gt;l,k,a,b-&gt;l);</span><br><span class="line">        pull(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Treap* <span class="title">merge</span><span class="params">(Treap *a,Treap *b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!a||!b)<span class="keyword">return</span> a?a:b;</span><br><span class="line">    <span class="keyword">if</span>(a-&gt;pri &gt; b-&gt;pri)&#123;</span><br><span class="line">        a-&gt;r=merge(a-&gt;r,b);</span><br><span class="line">        pull(a);</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        b-&gt;l=merge(a,b-&gt;l);</span><br><span class="line">        pull(b);</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ins</span><span class="params">(Treap *&amp;t,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    Treap *tt=<span class="literal">NULL</span>;</span><br><span class="line">    split(t,k,t,tt);</span><br><span class="line">    t=merge(t,merge(<span class="keyword">new</span> Treap(k),tt));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">del</span><span class="params">(Treap *&amp;t,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    Treap *lt=<span class="literal">NULL</span>,*rt=<span class="literal">NULL</span>,*tmp;</span><br><span class="line">    split(t,k<span class="number">-1</span>,lt,t);</span><br><span class="line">    split(t,k,t,rt);</span><br><span class="line">    tmp=t;</span><br><span class="line">    t=merge(lt,merge(t-&gt;l,merge(t-&gt;r,rt)));</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS_merge</span><span class="params">(Treap *&amp;a,Treap *&amp;b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b-&gt;l)DFS_merge(a,b-&gt;l);</span><br><span class="line">    <span class="keyword">if</span>(b-&gt;r)DFS_merge(a,b-&gt;r);</span><br><span class="line">    ins(a,b-&gt;key);</span><br><span class="line">    <span class="keyword">delete</span> b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_edge</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ta=bos(E[i]-&gt;a),tb=bos(E[i]-&gt;b);</span><br><span class="line">    <span class="keyword">if</span>(ta!=tb)&#123;</span><br><span class="line">        <span class="keyword">if</span>(TT[ta]-&gt;size &lt; TT[tb]-&gt;size)&#123;<span class="keyword">int</span> tmp=ta;ta=tb;tb=tmp;&#125;</span><br><span class="line">        DFS_merge(TT[ta],TT[tb]);</span><br><span class="line">        F[tb]=ta;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">kth</span><span class="params">(Treap *t,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!t || k&lt;=<span class="number">0</span> || k &gt; t-&gt;size)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(size(t-&gt;r) == k<span class="number">-1</span>)<span class="keyword">return</span> t-&gt;key;</span><br><span class="line">    <span class="keyword">if</span>(size(t-&gt;r) &gt; k<span class="number">-1</span>)<span class="keyword">return</span> kth(t-&gt;r,k);</span><br><span class="line">    <span class="keyword">return</span> kth(t-&gt;l,k<span class="number">-1</span>-size(t-&gt;r));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,a,b,cas=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="comment">// srand(1020);</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m),n||m)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(E,<span class="number">0</span>,<span class="keyword">sizeof</span>(E));</span><br><span class="line">        <span class="built_in">memset</span>(ST,<span class="number">0</span>,<span class="keyword">sizeof</span>(ST));</span><br><span class="line">        <span class="built_in">memset</span>(EL,<span class="number">0</span>,<span class="keyword">sizeof</span>(EL));</span><br><span class="line">        <span class="built_in">memset</span>(wed,<span class="number">0</span>,<span class="keyword">sizeof</span>(wed));</span><br><span class="line">        <span class="built_in">memset</span>(TT,<span class="number">0</span>,<span class="keyword">sizeof</span>(TT));</span><br><span class="line">        F(n)<span class="built_in">scanf</span>(<span class="string">"%d"</span>,D+i+<span class="number">1</span>);</span><br><span class="line">        F(m)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">            E[i+<span class="number">1</span>]=<span class="keyword">new</span> EE(a,b);</span><br><span class="line">        &#125;</span><br><span class="line">        st=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;c)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">'E'</span>)<span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">'D'</span>)<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a),EL[a]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">'C'</span>)&#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">                <span class="keyword">int</span> tmp=D[a];D[a]=b;b=tmp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">'Q'</span>)<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">            ST[st++]=<span class="keyword">new</span> MP(c,a,b);</span><br><span class="line">        &#125;</span><br><span class="line">        F(n)&#123;</span><br><span class="line">            F[i+<span class="number">1</span>]=i+<span class="number">1</span>;</span><br><span class="line">            TT[i+<span class="number">1</span>]=<span class="keyword">new</span> Treap(D[i+<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        F(m)<span class="keyword">if</span>(!EL[i+<span class="number">1</span>])merge_edge(i+<span class="number">1</span>);</span><br><span class="line">        LL sum=<span class="number">0</span>,cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(st--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ST[st]-&gt;c==<span class="string">'D'</span>)&#123;</span><br><span class="line">                merge_edge(ST[st]-&gt;a);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(ST[st]-&gt;c==<span class="string">'C'</span>)&#123;</span><br><span class="line">                del(TT[bos(ST[st]-&gt;a)],D[ST[st]-&gt;a]);</span><br><span class="line">                D[ST[st]-&gt;a]=ST[st]-&gt;b;</span><br><span class="line">                ins(TT[bos(ST[st]-&gt;a)],D[ST[st]-&gt;a]);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sum+=kth(TT[bos(ST[st]-&gt;a)],ST[st]-&gt;b);</span><br><span class="line">                cnt+=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(ST[st])<span class="keyword">delete</span> ST[st];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> ans=sum*<span class="number">1.0</span>/cnt;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: %lf\n"</span>,cas,ans);cas++;</span><br><span class="line">        F(m)<span class="keyword">delete</span> E[i+<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">5 4</span></span><br><span class="line"><span class="comment">10 20 20 20 20</span></span><br><span class="line"><span class="comment">1 2</span></span><br><span class="line"><span class="comment">2 3</span></span><br><span class="line"><span class="comment">3 4</span></span><br><span class="line"><span class="comment">4 5</span></span><br><span class="line"><span class="comment">Q 1 5</span></span><br><span class="line"><span class="comment">C 1 20</span></span><br><span class="line"><span class="comment">E</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chino.taipei/code-UVa-1479-Graph-and-Queries（Treap）/" data-id="cjf5lss7100cmsfq4ytzgewg8" class="article-share-link">Share</a>
+      
+        <a href="http://chino.taipei/code-UVa-1479-Graph-and-Queries（Treap）/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Treep/">Treep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/code-TIOJ-1684-圓桌武士-Knights-of-the-Round-Table/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          TIOJ::1684 . 圓桌武士 Knights of the Round Table
+        
+      </div>
+    </a>
+  
+  
+    <a href="/code-HOJ-Problem-79-滅人器/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HOJ::Problem : 79 - 滅人器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+    <aside id="sidebar" class="outer">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/">Code 備忘錄</a><span class="category-list-count">136</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/DP/">DP</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Data-Structure/">Data Structure</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Divide-Conquer/">Divide & Conquer</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Else/">Else</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Graph/">Graph</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Greedy/">Greedy</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Math/">Math</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/Search/">Search</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/String/">String</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Code-備忘錄/計算幾何/">計算幾何</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Diary/">Diary</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">20</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/2-SAT/" style="font-size: 10.83px;">2-SAT</a> <a href="/tags/2016寒假/" style="font-size: 10px;">2016寒假</a> <a href="/tags/Algorithm/" style="font-size: 11.67px;">Algorithm</a> <a href="/tags/AlphaGo/" style="font-size: 10px;">AlphaGo</a> <a href="/tags/Animate/" style="font-size: 10px;">Animate</a> <a href="/tags/Archlinux/" style="font-size: 10px;">Archlinux</a> <a href="/tags/BCC/" style="font-size: 10px;">BCC</a> <a href="/tags/BFS/" style="font-size: 12.5px;">BFS</a> <a href="/tags/BIT/" style="font-size: 10px;">BIT</a> <a href="/tags/Binary-Index-Tree/" style="font-size: 10px;">Binary Index Tree</a> <a href="/tags/Binary-Search/" style="font-size: 11.67px;">Binary Search</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DAG/" style="font-size: 10px;">DAG</a> <a href="/tags/DFS/" style="font-size: 15.83px;">DFS</a> <a href="/tags/DP回溯/" style="font-size: 10px;">DP回溯</a> <a href="/tags/Deque/" style="font-size: 11.67px;">Deque</a> <a href="/tags/Disjoin-Set/" style="font-size: 10.83px;">Disjoin Set</a> <a href="/tags/Driver/" style="font-size: 10px;">Driver</a> <a href="/tags/GAE/" style="font-size: 10.83px;">GAE</a> <a href="/tags/GNU-PBDS/" style="font-size: 10px;">GNU-PBDS</a> <a href="/tags/Gnome-Shell/" style="font-size: 10px;">Gnome-Shell</a> <a href="/tags/HOJ/" style="font-size: 17.5px;">HOJ</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Heap/" style="font-size: 11.67px;">Heap</a> <a href="/tags/IOI/" style="font-size: 15px;">IOI</a> <a href="/tags/IOICamp/" style="font-size: 10.83px;">IOICamp</a> <a href="/tags/KM/" style="font-size: 10px;">KM</a> <a href="/tags/LCA/" style="font-size: 10.83px;">LCA</a> <a href="/tags/LCS/" style="font-size: 10px;">LCS</a> <a href="/tags/LIS/" style="font-size: 10px;">LIS</a> <a href="/tags/Link-List/" style="font-size: 11.67px;">Link List</a> <a href="/tags/Linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/MST/" style="font-size: 10.83px;">MST</a> <a href="/tags/Monte-Carlo/" style="font-size: 10px;">Monte Carlo</a> <a href="/tags/NPSC/" style="font-size: 16.67px;">NPSC</a> <a href="/tags/New-Blog/" style="font-size: 10.83px;">New Blog</a> <a href="/tags/POI/" style="font-size: 10px;">POI</a> <a href="/tags/POJ/" style="font-size: 10.83px;">POJ</a> <a href="/tags/Plymouth/" style="font-size: 10px;">Plymouth</a> <a href="/tags/Python/" style="font-size: 14.17px;">Python</a> <a href="/tags/RMQ/" style="font-size: 11.67px;">RMQ</a> <a href="/tags/SCC/" style="font-size: 10.83px;">SCC</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/Shortest-Path/" style="font-size: 10.83px;">Shortest Path</a> <a href="/tags/Sort/" style="font-size: 11.67px;">Sort</a> <a href="/tags/Sparse-Table/" style="font-size: 10px;">Sparse Table</a> <a href="/tags/Stack/" style="font-size: 15px;">Stack</a> <a href="/tags/Step5/" style="font-size: 19.17px;">Step5</a> <a href="/tags/Stpe5/" style="font-size: 10px;">Stpe5</a> <a href="/tags/TIOJ/" style="font-size: 18.33px;">TIOJ</a> <a href="/tags/TOI/" style="font-size: 10.83px;">TOI</a> <a href="/tags/TOJ/" style="font-size: 17.5px;">TOJ</a> <a href="/tags/Tarjan/" style="font-size: 13.33px;">Tarjan</a> <a href="/tags/Tree/" style="font-size: 15px;">Tree</a> <a href="/tags/Treep/" style="font-size: 10px;">Treep</a> <a href="/tags/Trie/" style="font-size: 10.83px;">Trie</a> <a href="/tags/UVa/" style="font-size: 13.33px;">UVa</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/YAML/" style="font-size: 10.83px;">YAML</a> <a href="/tags/ZJOI/" style="font-size: 10px;">ZJOI</a> <a href="/tags/二分圖/" style="font-size: 10.83px;">二分圖</a> <a href="/tags/凸包/" style="font-size: 10px;">凸包</a> <a href="/tags/北市賽/" style="font-size: 10px;">北市賽</a> <a href="/tags/學測/" style="font-size: 14.17px;">學測</a> <a href="/tags/拓撲排序/" style="font-size: 11.67px;">拓撲排序</a> <a href="/tags/持久化/" style="font-size: 10px;">持久化</a> <a href="/tags/指考/" style="font-size: 14.17px;">指考</a> <a href="/tags/掃描線/" style="font-size: 10.83px;">掃描線</a> <a href="/tags/斜率優化/" style="font-size: 10px;">斜率優化</a> <a href="/tags/新年快樂/" style="font-size: 10px;">新年快樂</a> <a href="/tags/旋轉卡尺/" style="font-size: 10px;">旋轉卡尺</a> <a href="/tags/模擬退火/" style="font-size: 10px;">模擬退火</a> <a href="/tags/線段樹/" style="font-size: 13.33px;">線段樹</a> <a href="/tags/背包問題/" style="font-size: 10.83px;">背包問題</a> <a href="/tags/輸入優化/" style="font-size: 10px;">輸入優化</a> <a href="/tags/韓國釜山/" style="font-size: 10px;">韓國釜山</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/">ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0209Algorithm-Suffix-Array-後綴數組/">Algorithm::Suffix Array 後綴數組</a>
+          </li>
+        
+          <li>
+            <a href="/code-2017-0208IOICamp-導遊讚哥讚！/">IOICamp::導遊讚哥讚！</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-1205上大學整天在耍廢/">上大學整天在耍廢...</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-1205TIOJ-1841-好．傳囉！-Nice-Boat！/">TIOJ::1841-好．傳囉！ Nice Boat！</a>
+          </li>
+        
+          <li>
+            <a href="/note-2016-1020C-11-的-Random-library-你還在用rand-嗎/">C++11 的 Random library, 你還在用rand()嗎?</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0921TIOJ-1821-基本語-NPSC-古可魚語/">TIOJ::1821.基本語(NPSC 古可魚語)</a>
+          </li>
+        
+          <li>
+            <a href="/diary-2016-0911終於上大學了/">終於上大學了~~~</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0412TIOJ-ZJOI-1844-幻想乡战略游戏/">TIOJ::ZJOI::1844 . 幻想乡战略游戏</a>
+          </li>
+        
+          <li>
+            <a href="/code-2016-0402Algorithm-DP優化之四邊形不等式優化/">Algorithm-DP優化之四邊形不等式優化</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 CHUNG-SHENG WU<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/category" class="mobile-nav-link">Category</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/link" class="mobile-nav-link">Link</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'chinos';
+  
+  var disqus_url = 'http://chino.taipei/code-UVa-1479-Graph-and-Queries（Treap）/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
