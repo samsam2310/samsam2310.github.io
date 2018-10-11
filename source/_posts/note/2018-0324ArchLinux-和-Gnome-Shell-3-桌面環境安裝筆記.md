@@ -33,7 +33,9 @@ Archlinux 是給喜歡自己校調系統的人使用的（？
 
 ## 安裝 Archlinux
 
+反正都看這邊 ： https://wiki.archlinux.org/index.php/installation_guide
 這個步驟和大部分安裝過程類似，就先搞個 Archlinux 隨身碟，燒 Archlinux 的 ISO，接著用它開機等等的，接下來的步驟就照 Archlinux 官網的安裝教學。
+燒隨身碟主要好像有兩家軟體，有時候用某一家燒會開不了機就換一家的試試看，不同電腦好像也有不同的狀況。
 Archlinux 是用指令一步一步完成安裝的，包括分割硬碟，mount，安裝 OS 基本套件等等可能會嚇到很多新手，不過其實也就那樣而已。
 
 關於分割硬碟，基本上因為是自己個人使用，割一個 / 磁區跟 swap 磁區就好。如果是 SSD 的話就不要 Swap 了太傷 SSD 了。
@@ -46,7 +48,7 @@ Archlinux 是用指令一步一步完成安裝的，包括分割硬碟，mount�
 
 ### Grub2 Efi
 
-如果從舊的 BIOS MBR 開機方式轉過來的人可能不了解 UEFI 開機模式。其實很簡單，灌電腦的時候多割一個 EFI 磁區，然後照著 [Archlinux Grub](https://wiki.archlinux.org/index.php/GRUB_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87)) 文件上關於 UEFI 的步驟安裝 Grub 就可以了。
+如果從舊的 BIOS MBR 開機方式轉過來的人可能不了解 UEFI 開機模式。其實很簡單，灌電腦的時候多割一個 EFI 磁區，然後照著 [Archlinux Grub](https://wiki.archlinux.org/index.php/GRUB) 文件上關於 UEFI 的步驟安裝 Grub 就可以了。
 基本概念就是，現在 UEFI 系統會去硬碟裡搜尋 EFI 磁區，從裡面找開機檔來開機，很方便，可以跟 Windows 的 EFI 磁區分開達成雙重開機又不怕被 Windows 蓋回去了。
 如果你是用蓋掉 Windows 的 EFI 磁區的方式安裝的要小心 Windows 把他的 EFI 磁區自動修復又搞回去。
 如果不小心搞壞了 Windows 的 EFI 去網路上找 Windows 的指令修復就可以了。
@@ -65,9 +67,12 @@ Archlinux 是用指令一步一步完成安裝的，包括分割硬碟，mount�
 
 * openssh vim sudo
 這三個就不解釋了，反正會用到，vim 可能安裝系統的時候就會裝了，因為會去條設定檔XDsudo 的話就是先加個使用者當作平常自己用的使用者然後去設定下。
-* base-devel git yaourt
+* base-devel git yaourt (更新：yaourt 已經被棄用了，請改成 yay 之類的套件)
 base-devel 包含所有用來 build 套件的相關工具，也有 gcc g++ 等等，git 就 git。前面兩個是 yaourt 不可或缺的套件。
 yaourt 是一個跟包裝 pacman 的套件管理程式，讓你可以像裝官方套件庫一樣安裝 AUR(Arch User Repository) 上的套件，讓你可以輕鬆安裝各種有的沒的，不然你本來要裝可能要自己 git clone 然後自己編譯再安裝，yaourt 就是幫你做這件事情。裝好之後，以後的 pacman 都用 yaourt 指令取代就可以了。不過 yaourt 本身也在 AUR 上，有兩種裝法，一種是暫時加入法國(?)的某個 arch 套件庫到 pacman，或是體驗一次原汁原味的 AUR 套件安裝，詳細網路上資料很多。
+
+**更新** ：yaourt 已經被棄用了，請改用其他的 aur helper ，我個人現在是用 yay 取代 yaourt 。參考：https://wiki.archlinux.org/index.php/AUR_helpers
+
 * gnome-shell gdm(gdm-plymouth)
 如果你想要有桌面系統（個人電腦用純文字界面也是滿難用的），那 gnome-shell 是個好選擇，漂亮美觀，整體 UI 設計我覺的很好，有很多漂亮主題可以套用。如果你想用別的，也沒差？後面解釋細節。
 * chinese-font chinese-input-method(ibus-chewing)(ibus-athiy)(run ibus-setup)
