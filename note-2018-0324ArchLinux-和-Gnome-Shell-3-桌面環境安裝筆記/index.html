@@ -14,7 +14,7 @@
 <meta property="og:description" content="自從上次灌好 Archlinux 後其實我一直想要來寫一篇筆記，可是一直都沒有真的來寫。結果過了一年，因為換電腦又重灌了一次，這次來把它寫下來。 這篇的重點會擺在如何安裝一個個人工作用的 Archlinux 環境，其實步驟意外的不難，當然是過程中不要出意外啦XD Archlinux 好處是單純，乾淨，很容易了解並自己調整內容，也很適合拿來學習熟悉 Linux 系統。加上社群活躍，更新快速，拿來當開">
 <meta property="og:locale" content="Chinese, English">
 <meta property="og:image" content="http://chino.taipei/css/images/LOGO-250x250.png">
-<meta property="og:updated_time" content="2018-03-24T17:16:11.651Z">
+<meta property="og:updated_time" content="2018-10-11T05:49:49.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ArchLinux 和 Gnome Shell 3 桌面環境安裝筆記|Chino&#39;s">
 <meta name="twitter:description" content="自從上次灌好 Archlinux 後其實我一直想要來寫一篇筆記，可是一直都沒有真的來寫。結果過了一年，因為換電腦又重灌了一次，這次來把它寫下來。 這篇的重點會擺在如何安裝一個個人工作用的 Archlinux 環境，其實步驟意外的不難，當然是過程中不要出意外啦XD Archlinux 好處是單純，乾淨，很容易了解並自己調整內容，也很適合拿來學習熟悉 Linux 系統。加上社群活躍，更新快速，拿來當開">
@@ -125,17 +125,20 @@ ga('send', 'pageview');
 <a id="more"></a>
 <h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><p>首先提一下，如果是沒什麼灌過作業系統，或是沒有灌過 Linux 的人如果下定決心想要熟悉 Linux 無訪，但若只是要搞個 Linux 環境寫作業還是幹麻的，推薦還是去灌 Ubuntu 就好。<br>Archlinux 是給喜歡自己校調系統的人使用的（？</p>
 <p>首先，灌系統還是要準備的有，東西是否都備份了，自己的硬體架構和驅動程式是不是可以被 Archlinux 支援等等的。不過通常都不會太慘啦？灌下去就知道了。<br>筆電通常問題比較多，因為硬體都是怪怪的硬體。聽說 Dell 的筆電的話會好一點，畢竟有原廠支援 Ubuntu 的樣子。其他的就看緣份吧？<br>如果你是從其他 Linux 重灌的，記得備份 ssh-key 和 bashrc 等等檔案。</p>
-<h2 id="安裝-Archlinux"><a href="#安裝-Archlinux" class="headerlink" title="安裝 Archlinux"></a>安裝 Archlinux</h2><p>這個步驟和大部分安裝過程類似，就先搞個 Archlinux 隨身碟，燒 Archlinux 的 ISO，接著用它開機等等的，接下來的步驟就照 Archlinux 官網的安裝教學。<br>Archlinux 是用指令一步一步完成安裝的，包括分割硬碟，mount，安裝 OS 基本套件等等可能會嚇到很多新手，不過其實也就那樣而已。</p>
+<h2 id="安裝-Archlinux"><a href="#安裝-Archlinux" class="headerlink" title="安裝 Archlinux"></a>安裝 Archlinux</h2><p>反正都看這邊 ： <a href="https://wiki.archlinux.org/index.php/installation_guide" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/installation_guide</a><br>這個步驟和大部分安裝過程類似，就先搞個 Archlinux 隨身碟，燒 Archlinux 的 ISO，接著用它開機等等的，接下來的步驟就照 Archlinux 官網的安裝教學。<br>燒隨身碟主要好像有兩家軟體，有時候用某一家燒會開不了機就換一家的試試看，不同電腦好像也有不同的狀況。<br>Archlinux 是用指令一步一步完成安裝的，包括分割硬碟，mount，安裝 OS 基本套件等等可能會嚇到很多新手，不過其實也就那樣而已。</p>
 <p>關於分割硬碟，基本上因為是自己個人使用，割一個 / 磁區跟 swap 磁區就好。如果是 SSD 的話就不要 Swap 了太傷 SSD 了。</p>
 <p>我灌兩次大概遇過幾個問題：</p>
 <h3 id="Sercurity-Boot"><a href="#Sercurity-Boot" class="headerlink" title="Sercurity Boot"></a>Sercurity Boot</h3><p>這東西記得關掉，他是用來驗證你的 OS 是不是某些受信任的廠商(只有 Windows ??) 發行的，Linux 嘛，反正也不可能有人幫它簽，自己簽也沒什麼意義，所以直接關掉就好。</p>
-<h3 id="Grub2-Efi"><a href="#Grub2-Efi" class="headerlink" title="Grub2 Efi"></a>Grub2 Efi</h3><p>如果從舊的 BIOS MBR 開機方式轉過來的人可能不了解 UEFI 開機模式。其實很簡單，灌電腦的時候多割一個 EFI 磁區，然後照著 <a href="https://wiki.archlinux.org/index.php/GRUB_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">Archlinux Grub</a>) 文件上關於 UEFI 的步驟安裝 Grub 就可以了。<br>基本概念就是，現在 UEFI 系統會去硬碟裡搜尋 EFI 磁區，從裡面找開機檔來開機，很方便，可以跟 Windows 的 EFI 磁區分開達成雙重開機又不怕被 Windows 蓋回去了。<br>如果你是用蓋掉 Windows 的 EFI 磁區的方式安裝的要小心 Windows 把他的 EFI 磁區自動修復又搞回去。<br>如果不小心搞壞了 Windows 的 EFI 去網路上找 Windows 的指令修復就可以了。</p>
+<h3 id="Grub2-Efi"><a href="#Grub2-Efi" class="headerlink" title="Grub2 Efi"></a>Grub2 Efi</h3><p>如果從舊的 BIOS MBR 開機方式轉過來的人可能不了解 UEFI 開機模式。其實很簡單，灌電腦的時候多割一個 EFI 磁區，然後照著 <a href="https://wiki.archlinux.org/index.php/GRUB" target="_blank" rel="noopener">Archlinux Grub</a> 文件上關於 UEFI 的步驟安裝 Grub 就可以了。<br>基本概念就是，現在 UEFI 系統會去硬碟裡搜尋 EFI 磁區，從裡面找開機檔來開機，很方便，可以跟 Windows 的 EFI 磁區分開達成雙重開機又不怕被 Windows 蓋回去了。<br>如果你是用蓋掉 Windows 的 EFI 磁區的方式安裝的要小心 Windows 把他的 EFI 磁區自動修復又搞回去。<br>如果不小心搞壞了 Windows 的 EFI 去網路上找 Windows 的指令修復就可以了。</p>
 <h3 id="Dell-eps-EFI-boot-bootx64-efi"><a href="#Dell-eps-EFI-boot-bootx64-efi" class="headerlink" title="Dell eps/EFI/boot/bootx64.efi"></a>Dell eps/EFI/boot/bootx64.efi</h3><p>這個最雷了…。想說怎麼 Grub 灌好了卻開不了，結果 Dell 會去檢查你的 eps/EFI/boot/bootx64.efi 這個檔案在不在…。基本上跟你的grub 的 .efi 檔同一層目錄下，新增一個 bootx64.efi 的檔案，就可以動了…。</p>
 <p>其他相關問題就去逛逛 Archlinux wiki 吧？</p>
 <h2 id="套件安裝"><a href="#套件安裝" class="headerlink" title="套件安裝"></a>套件安裝</h2><p>這裡寫幾個我安裝的套件：</p>
 <ul>
 <li>openssh vim sudo<br>這三個就不解釋了，反正會用到，vim 可能安裝系統的時候就會裝了，因為會去條設定檔XDsudo 的話就是先加個使用者當作平常自己用的使用者然後去設定下。</li>
-<li>base-devel git yaourt<br>base-devel 包含所有用來 build 套件的相關工具，也有 gcc g++ 等等，git 就 git。前面兩個是 yaourt 不可或缺的套件。<br>yaourt 是一個跟包裝 pacman 的套件管理程式，讓你可以像裝官方套件庫一樣安裝 AUR(Arch User Repository) 上的套件，讓你可以輕鬆安裝各種有的沒的，不然你本來要裝可能要自己 git clone 然後自己編譯再安裝，yaourt 就是幫你做這件事情。裝好之後，以後的 pacman 都用 yaourt 指令取代就可以了。不過 yaourt 本身也在 AUR 上，有兩種裝法，一種是暫時加入法國(?)的某個 arch 套件庫到 pacman，或是體驗一次原汁原味的 AUR 套件安裝，詳細網路上資料很多。</li>
+<li>base-devel git yaourt (更新：yaourt 已經被棄用了，請改成 yay 之類的套件)<br>base-devel 包含所有用來 build 套件的相關工具，也有 gcc g++ 等等，git 就 git。前面兩個是 yaourt 不可或缺的套件。<br>yaourt 是一個跟包裝 pacman 的套件管理程式，讓你可以像裝官方套件庫一樣安裝 AUR(Arch User Repository) 上的套件，讓你可以輕鬆安裝各種有的沒的，不然你本來要裝可能要自己 git clone 然後自己編譯再安裝，yaourt 就是幫你做這件事情。裝好之後，以後的 pacman 都用 yaourt 指令取代就可以了。不過 yaourt 本身也在 AUR 上，有兩種裝法，一種是暫時加入法國(?)的某個 arch 套件庫到 pacman，或是體驗一次原汁原味的 AUR 套件安裝，詳細網路上資料很多。</li>
+</ul>
+<p><strong>更新</strong> ：yaourt 已經被棄用了，請改用其他的 aur helper ，我個人現在是用 yay 取代 yaourt 。參考：<a href="https://wiki.archlinux.org/index.php/AUR_helpers" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/AUR_helpers</a></p>
+<ul>
 <li>gnome-shell gdm(gdm-plymouth)<br>如果你想要有桌面系統（個人電腦用純文字界面也是滿難用的），那 gnome-shell 是個好選擇，漂亮美觀，整體 UI 設計我覺的很好，有很多漂亮主題可以套用。如果你想用別的，也沒差？後面解釋細節。</li>
 <li>chinese-font chinese-input-method(ibus-chewing)(ibus-athiy)(run ibus-setup)<br>記得要裝個中文字體，不然會顯示不了中文！！其他語言也是要記得裝字體。字體的話就自己選一個喜歡的就好。<br>至於中文輸入法就是個大坑，gnome-shell 預設跟 ibus 結合，我灌不起來其他的又覺得ibus 還可以用，就用了XD</li>
 <li>sakura(Terminal)<br>因為新版的 gnome-terminal 移除了背景半透明的功能，為了有跟以前一樣的使用體驗，就發現了這個還不錯的 terminal，雖然預設很醜，不過套用設定檔之後就變得很漂亮了。可以參考我的<a href="https://github.com/samsam2310/weirc/blob/master/conf/sakura.conf" target="_blank" rel="noopener">設定檔</a>，記得放到 ~/.config/sakura/ 下面。</li>
@@ -161,7 +164,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/" data-id="cjjgzvm9700vhj6q4w3hvogpf" class="article-share-link">Share</a>
+      <a data-url="http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/" data-id="cjn45v0n400vtukq4hty74lmv" class="article-share-link">Share</a>
       
         <a href="http://chino.taipei/note-2018-0324ArchLinux-和-Gnome-Shell-3-桌面環境安裝筆記/#disqus_thread" class="article-comment-link">Comments</a>
       
