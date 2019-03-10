@@ -2,7 +2,7 @@
 My blog.
 Powered by [Hexo](https://hexo.io/) .
 
-Before add new post, modify _config.yml.
+Before add new post, modify `_config.yml`.
 
 
 ### After clone.
